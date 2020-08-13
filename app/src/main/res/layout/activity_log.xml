@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#30bfa5"
+    tools:context=".activity_log">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:0.6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.57"
+            app:srcCompat="@drawable/png_activity_log" />
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_arrow_white" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/mons_bold"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="-22.7sp"
+            android:text="ACTIVITY LOG"
+            android:textColor="#141f26"
+            android:textSize="23.3sp"
+            app:layout_constraintBottom_toBottomOf="@id/imageView"
+            app:layout_constraintStart_toEndOf="@id/guideline06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.06" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline94"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+        <devs.mulham.horizontalcalendar.HorizontalCalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+            android:background="#00000000"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_bias="0.2"
+
+            app:textColorNormal="#f2cf1d"
+            app:textColorSelected="#141f26" />
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:minHeight="500dp"
+           android:background="@drawable/black_half_rounded"
+            app:layout_constraintStart_toStartOf="@id/guideline06"
+            app:layout_constraintEnd_toEndOf="@id/guideline94"
+            app:layout_constraintTop_toBottomOf="@+id/calendarView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rubik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:paddingBottom="40dp">
+
+                <TextView
+                    android:id="@+id/levelText_rubik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Level"
+                    android:textColor="#30bfa5"
+                    android:layout_marginTop="20dp"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/guideline06in"
+                    app:layout_constraintTop_toBottomOf="@id/title_rubik" />
+
+                <TextView
+                    android:id="@+id/taskText_rubik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Task"
+                    android:textColor="#30bfa5"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/guideline06in"
+                    app:layout_constraintTop_toBottomOf="@+id/levelText_rubik" />
+
+                <TextView
+                    android:id="@+id/task_rubik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="9"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/taskText_rubik"
+
+                    app:layout_constraintStart_toEndOf="@id/levelText_rubik" />
+
+                <TextView
+                    android:id="@+id/level_rubik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="10"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/levelText_rubik"
+
+                    app:layout_constraintStart_toEndOf="@id/levelText_rubik" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline06in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.06" />
+                <TextView
+                    android:id="@+id/title_rubik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="25sp"
+                    android:text="Rubik's Puzzle"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/mons_black"
+                    app:layout_constraintStart_toStartOf="@id/guideline06in"/>
+
+
+
+                <TextView
+                    android:id="@+id/Credit_earnedText_rubik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Xcore\nEarned"
+                    android:textColor="#30bfa5"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/taskText_rubik"
+                    app:layout_constraintStart_toEndOf="@id/guideline50"
+                    app:layout_constraintTop_toTopOf="@id/levelText_rubik" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <TextView
+                    android:id="@+id/credits_earned_rubik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="10"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/Credit_earnedText_rubik"
+                    app:layout_constraintStart_toEndOf="@id/Credit_earnedText_rubik"
+
+
+                    app:layout_constraintTop_toTopOf="@id/Credit_earnedText_rubik" />
+
+                <TextView
+                    android:id="@+id/task_type_rubik"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                   android:gravity="center"
+                    android:fontFamily="@font/nexabold"
+                    android:text="Upload 2 videos of solving cross"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toStartOf="@id/guideline94in"
+                    app:layout_constraintStart_toEndOf="@id/guideline06in"
+
+                    app:layout_constraintTop_toBottomOf="@+id/taskText_rubik" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline94in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.94" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sports"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:paddingBottom="40dp">
+
+                <TextView
+                    android:id="@+id/levelText_sports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Level"
+                    android:textColor="#30bfa5"
+                    android:layout_marginTop="20dp"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/guideline06inS"
+                    app:layout_constraintTop_toBottomOf="@id/title_sports" />
+
+                <TextView
+                    android:id="@+id/taskText_sport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Task"
+                    android:textColor="#30bfa5"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/guideline06inS"
+                    app:layout_constraintTop_toBottomOf="@+id/levelText_sports" />
+
+                <TextView
+                    android:id="@+id/task_sport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="9"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/taskText_sport"
+
+                    app:layout_constraintStart_toEndOf="@id/levelText_sports" />
+
+                <TextView
+                    android:id="@+id/level_sports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="10"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/levelText_sports"
+
+                    app:layout_constraintStart_toEndOf="@id/levelText_sports" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline06inS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.06" />
+                <TextView
+                    android:id="@+id/title_sports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="25sp"
+                    android:text="Sports Fitness"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/mons_black"
+                    app:layout_constraintStart_toStartOf="@id/guideline06inS"/>
+
+
+
+                <TextView
+                    android:id="@+id/Credit_earnedText_sports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Xcore\nEarned"
+                    android:textColor="#30bfa5"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/taskText_sport"
+                    app:layout_constraintStart_toEndOf="@id/guideline50s"
+                    app:layout_constraintTop_toTopOf="@id/levelText_sports" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline50s"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <TextView
+                    android:id="@+id/credits_earned_sports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="10"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/Credit_earnedText_sports"
+                    app:layout_constraintStart_toEndOf="@id/Credit_earnedText_sports"
+
+
+                    app:layout_constraintTop_toTopOf="@id/Credit_earnedText_sports" />
+
+
+                <LinearLayout
+                    android:id="@+id/ex_type_sports"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/taskText_sport"
+                    app:layout_constraintStart_toStartOf="@id/guideline06inS"
+                    app:layout_constraintEnd_toEndOf="@id/guideline94inS">
+
+
+
+
+
+
+
+
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline94inS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.94" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/health"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:paddingBottom="40dp">
+
+                <TextView
+                    android:id="@+id/levelText_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Level"
+                    android:textColor="#30bfa5"
+                    android:layout_marginTop="20dp"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/guideline06inH"
+                    app:layout_constraintTop_toBottomOf="@id/title_health" />
+
+                <TextView
+                    android:id="@+id/taskText_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Task"
+                    android:textColor="#30bfa5"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/guideline06inH"
+                    app:layout_constraintTop_toBottomOf="@+id/levelText_health" />
+
+                <TextView
+                    android:id="@+id/task_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="9"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/taskText_health"
+
+                    app:layout_constraintStart_toEndOf="@id/levelText_health" />
+
+                <TextView
+                    android:id="@+id/level_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="10"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/levelText_health"
+
+                    app:layout_constraintStart_toEndOf="@id/levelText_health" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline06inH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.06" />
+                <TextView
+                    android:id="@+id/title_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="25sp"
+                    android:text="Health Fitness"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/mons_black"
+                    app:layout_constraintStart_toStartOf="@id/guideline06inH"/>
+
+
+
+                <TextView
+                    android:id="@+id/Credit_earnedText_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexa_light"
+                    android:text="Xcore\nEarned"
+                    android:textColor="#30bfa5"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/taskText_health"
+                    app:layout_constraintStart_toEndOf="@id/guideline50H"
+                    app:layout_constraintTop_toTopOf="@id/levelText_health" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline50H"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <TextView
+                    android:id="@+id/credits_earned_health"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/nexabold"
+                    android:text="10"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/Credit_earnedText_health"
+                    app:layout_constraintStart_toEndOf="@id/Credit_earnedText_health"
+
+
+                    app:layout_constraintTop_toTopOf="@id/Credit_earnedText_health" />
+
+
+                <LinearLayout
+                    android:id="@+id/ex_type_health"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/taskText_health"
+                    app:layout_constraintStart_toStartOf="@id/guideline06inH"
+                    app:layout_constraintEnd_toEndOf="@id/guideline94inH">
+
+
+
+
+
+
+
+
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline94inH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.94" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/null_activity"
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="No activity is done on this day "
+                android:textColor="#ffffffff"
+                android:fontFamily="@font/nexabold"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

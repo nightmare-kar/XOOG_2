@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/slot_booking_back"
+    tools:context=".slot_book">
+
+    <TextView
+        android:id="@+id/topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/light_blue_shadow_rect"
+        android:fontFamily="@font/mons_black"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="-15.5sp"
+        android:paddingTop="40dp"
+        android:paddingBottom="30dp"
+        android:text="Introduction to Rubiks Cube"
+        android:textColor="#f2f2f2"
+        android:textSize="21.2sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/semi_whit_round_rect"
+        android:fontFamily="@font/nexabold"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="-11.3sp"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:text="Book your session"
+        android:textColor="#3587f2"
+        android:textSize="15.5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/choose_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/mons_black"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="-12.2sp"
+        android:text="Choose any 1 of the slots"
+        android:textColor="#f2f2f2"
+        android:textSize="16.5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topic" />
+
+
+
+    <devs.mulham.horizontalcalendar.HorizontalCalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="15dp"
+        android:background="#41a0f2"
+        app:layout_constraintBottom_toTopOf="@id/guideline_40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/choose_text"
+        app:layout_constraintVertical_bias="0.2"
+
+        app:textColorNormal="#f2f2f2"
+        app:textColorSelected="#f2f2f2" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.2"
+        android:progressDrawable="@drawable/progress"
+        android:indeterminateDrawable="@drawable/progress_slot"
+        app:layout_constraintBottom_toBottomOf="@+id/listview"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/listview"
+        android:indeterminate="true"
+        />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_87"
+
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <TextView
+
+
+
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="-9.2sp"
+        android:text="Cant’ make it on these slots?"
+        android:textColor="#f2f2f2"
+        android:textSize="12.5sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/contact"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_63"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_87" />
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_blue_19dp"
+        android:fontFamily="@font/mons_bold"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="-8.2sp"
+        android:padding="5dp"
+        android:clickable="true"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="Contact us"
+        app:layout_constraintHorizontal_bias="0"
+        android:textColor="#ffffff"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@+id/guideline_63"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_87" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_87"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.63" />
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.2sp"
+        android:textColor="#ffffff"
+        android:paddingStart="20dp"
+
+        android:paddingEnd="20dp"
+        android:lineSpacingExtra="-11.2sp"
+        android:gravity="center"
+        android:fontFamily="@font/mons_bold"
+        android:text="Confirm slot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question"
+        android:background="@drawable/selector_blue_19dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

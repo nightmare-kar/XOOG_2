@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/blue_gradient"
+    tools:context=".choose_plan">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/shape_plan_choose"
+            app:layout_constraintEnd_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="13dp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#317ef2"
+            android:textSize="30sp"
+            android:fontFamily="@font/nexabold"
+            android:lineSpacingExtra="-5sp"
+            app:layout_constraintBottom_toBottomOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="@id/imageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.45"
+            android:text="Choose Your\nPlan" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18.3dp"
+            android:layout_marginEnd="30dp"
+         android:layout_marginStart="30dp"
+            android:fontFamily="@font/nexabold"
+            android:letterSpacing="0.26"
+            android:gravity="center"
+            android:lineSpacingExtra="-2sp"
+            android:text="Choose any of these boxes to know more about the programs and subscribe. "
+            android:textColor="#f2f2f2"
+            android:textSize="12.2sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_arrow_blue" />
+
+
+
+
+
+        <androidx.constraintlayout.widget.Group
+            android:tag="1"
+            android:id="@+id/group1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="sports,sports_button,sportsText" />
+        <androidx.constraintlayout.widget.Group
+            android:tag="2"
+            android:id="@+id/group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="rubik,rubik_button,rubikText" />
+        <androidx.constraintlayout.widget.Group
+            android:tag="3"
+            android:id="@+id/group3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="special,special_button,specialText" />
+
+
+        <ImageView
+            android:id="@+id/sports"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:onClick="imageClick"
+             android:tag="1"
+            app:layout_constraintWidth_percent="0.75"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="1:0.38"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+
+            app:srcCompat="@drawable/sports" />
+        <TextView
+            android:tag="1"
+            android:id="@+id/sports_button"
+            android:layout_width="75dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/blue_no_shadow"
+            android:paddingTop="3dp"
+            android:paddingLeft="5dp"
+            android:textColor="#f2f2f2"
+            android:fontFamily="@font/nexabold"
+            android:gravity="center"
+            android:text="Pay Now"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/sports"
+            app:layout_constraintEnd_toEndOf="@id/sportsText"
+            app:layout_constraintHorizontal_bias="0.26"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintStart_toStartOf="@id/sportsText"
+            app:layout_constraintTop_toBottomOf="@id/sportsText" />
+
+        <TextView
+            android:tag="1"
+            android:id="@+id/sportsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:text="Sports\nFitness"
+            android:fontFamily="@font/mons_bold"
+
+            android:textColor="#3587f2"
+            android:textSize="16.3sp"
+            android:lineSpacingExtra="-5sp"
+            app:layout_constraintBottom_toBottomOf="@id/sports"
+            app:layout_constraintEnd_toEndOf="@id/sports"
+            app:layout_constraintTop_toTopOf="@+id/sports"
+            app:layout_constraintVertical_bias="0.18" />
+
+        <ImageView
+            android:id="@+id/rubik"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:onClick="imageClick"
+            android:tag="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sports"
+            app:layout_constraintWidth_percent="0.75"
+            app:layout_constraintDimensionRatio="1:0.38"
+            app:srcCompat="@drawable/rubik" />
+
+        <TextView
+            android:tag="2"
+            android:id="@+id/rubikText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:text="Rubik\nPuzzles"
+            android:fontFamily="@font/mons_bold"
+            android:textColor="#3587f2"
+            android:textSize="16.3sp"
+            app:layout_constraintBottom_toBottomOf="@id/rubik"
+            app:layout_constraintEnd_toEndOf="@id/rubik"
+            app:layout_constraintTop_toTopOf="@+id/rubik"
+            app:layout_constraintVertical_bias="0.18" />
+
+
+        <TextView
+            android:tag="2"
+            android:id="@+id/rubik_button"
+            android:layout_width="75dp"
+            android:layout_height="24dp"
+            android:paddingTop="3dp"
+            android:paddingLeft="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/blue_no_shadow"
+            android:textColor="#f2f2f2"
+           app:layout_constraintVertical_bias="0"
+            android:fontFamily="@font/nexabold"
+            android:gravity="center"
+            android:text="Pay Now  "
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/rubik"
+            app:layout_constraintEnd_toEndOf="@id/rubikText"
+            app:layout_constraintHorizontal_bias="0.26"
+            app:layout_constraintStart_toStartOf="@id/rubikText"
+            app:layout_constraintTop_toBottomOf="@id/rubikText" />
+
+        <ImageView
+            android:id="@+id/special"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:onClick="imageClick"
+            android:tag="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintWidth_percent="0.75"
+            app:layout_constraintDimensionRatio="1:0.38"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rubik"
+            app:srcCompat="@drawable/special" />
+
+        <TextView
+            android:tag="3"
+            android:id="@+id/specialText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:text="XOOG\nSpecial"
+            android:fontFamily="@font/mons_bold"
+            android:lineSpacingExtra="-5sp"
+            android:textColor="#3587f2"
+            android:textSize="16.3sp"
+            app:layout_constraintBottom_toBottomOf="@id/special"
+            app:layout_constraintEnd_toEndOf="@id/special"
+            app:layout_constraintTop_toTopOf="@+id/special"
+            app:layout_constraintVertical_bias="0.18" />
+
+        <TextView
+            android:tag="3"
+            android:id="@+id/special_button"
+            android:layout_width="75dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintVertical_bias="0"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/blue_no_shadow"
+            android:textColor="#f2f2f2"
+            android:lineSpacingExtra="-5sp"
+            android:paddingTop="3dp"
+            android:paddingLeft="5dp"
+            android:fontFamily="@font/nexabold"
+
+            android:gravity="center"
+            android:text="Pay Now  "
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/special"
+            app:layout_constraintEnd_toEndOf="@id/specialText"
+            app:layout_constraintHorizontal_bias="0.26"
+            app:layout_constraintStart_toStartOf="@id/specialText"
+            app:layout_constraintTop_toBottomOf="@id/specialText" />
+        <LinearLayout
+            android:tag="1"
+            android:id="@+id/linear_sports"
+            android:layout_width="0dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.8"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            android:background="@drawable/white_no_shadow">
+
+
+            <TextView
+                android:id="@+id/title_sports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17.3sp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/mons_bold"
+
+                android:textColor="#3587f2"
+                android:text="Sports Fitness"
+                />
+            <TextView
+                android:id="@+id/sports_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#327ff2"
+                android:fontFamily="@font/nexa_light"
+                android:layout_gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="-11.5sp"
+                android:text="2000 Per Month"
+                />
+            <TextView
+                android:id="@+id/sport_content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp"
+                android:textColor="#327ff2"
+                android:fontFamily="@font/nexa_light"
+                android:paddingBottom="10dp"
+                android:layout_marginLeft="20dp"
+
+                android:layout_gravity="start"
+                android:lineSpacingExtra="0sp"
+                android:text="Strength Based Physical Training to improve the performance and endurance of the kids respective sport  "
+                />
+
+            <TextView
+                android:id="@+id/sport_content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.02"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:paddingBottom="15dp"
+                android:lineSpacingExtra="0sp"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#327ff2"
+                android:layout_gravity="start"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="231dp"
+                android:text="Customised Training for better results\n\n1 on 1 Review and assesments \n\nIncreases Sprinting,Strength &amp; Immunity  " />
+            <Button
+                android:id="@+id/sports_button2"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:background="@drawable/selector_blue_19dp"
+
+                android:paddingTop="3dp"
+                android:paddingLeft="5dp"
+                android:textColor="#f2f2f2"
+                android:onClick="pay_now"
+                android:fontFamily="@font/nexabold"
+                android:gravity="center"
+                android:text="Pay Now  "
+                android:textSize="12sp"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintHorizontal_bias="0.26"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:tag="2"
+            android:id="@+id/linear_rubik"
+            android:layout_width="0dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.8"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/sports"
+            android:background="@drawable/white_no_shadow">
+
+
+            <TextView
+                android:id="@+id/title_rubik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17.3sp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/mons_bold"
+
+                android:textColor="#3587f2"
+                android:text="Sports Fitness"
+                />
+            <TextView
+                android:id="@+id/rubik_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#327ff2"
+                android:fontFamily="@font/nexa_light"
+                android:layout_gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="-11.5sp"
+                android:text="2000 Per Month"
+                />
+            <TextView
+                android:id="@+id/rubik_content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp"
+                android:textColor="#327ff2"
+                android:fontFamily="@font/nexa_light"
+                android:paddingBottom="10dp"
+                android:layout_marginLeft="20dp"
+
+                android:layout_gravity="start"
+                android:lineSpacingExtra="0sp"
+                android:text="Strength Based Physical Training to improve the performance and endurance of the kids respective sport  "
+                />
+
+            <TextView
+                android:id="@+id/rubik_content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.02"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+
+                android:paddingBottom="15dp"
+                android:lineSpacingExtra="0sp"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#327ff2"
+                android:layout_gravity="start"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="231dp"
+                android:text="Customised Training for better results\n\n1 on 1 Review and assesments \n\nIncreases Sprinting,Strength &amp; Immunity  " />
+            <Button
+                android:id="@+id/rubik_button2"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:background="@drawable/selector_blue_19dp"
+
+                android:paddingTop="3dp"
+                android:paddingLeft="5dp"
+                android:textColor="#f2f2f2"
+                android:fontFamily="@font/nexabold"
+                android:gravity="center"
+                android:text="Pay Now"
+                android:onClick="pay_now"
+                android:textSize="12sp"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintHorizontal_bias="0.26"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:tag="3"
+            android:id="@+id/linear_special"
+            android:layout_width="0dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.8"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/rubik"
+            android:visibility="gone"
+            android:background="@drawable/white_no_shadow">
+
+
+            <TextView
+                android:id="@+id/title_special"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17.3sp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/mons_bold"
+
+                android:textColor="#3587f2"
+                android:text="Sports Fitness"
+                />
+            <TextView
+                android:id="@+id/special_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#327ff2"
+                android:fontFamily="@font/nexa_light"
+                android:layout_gravity="center_horizontal"
+                android:letterSpacing="-0.02"
+                android:lineSpacingExtra="-11.5sp"
+                android:text="2000 Per Month"
+                />
+            <TextView
+                android:id="@+id/special_content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp"
+                android:textColor="#327ff2"
+                android:fontFamily="@font/nexa_light"
+                android:paddingBottom="10dp"
+                android:layout_marginLeft="20dp"
+
+                android:layout_gravity="start"
+                android:lineSpacingExtra="0sp"
+                android:text="Strength Based Physical Training to improve the performance and endurance of the kids respective sport  "
+                />
+
+            <TextView
+                android:id="@+id/special_content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.02"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:paddingBottom="15dp"
+                android:lineSpacingExtra="0sp"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#327ff2"
+                android:layout_gravity="start"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="231dp"
+                android:text="Customised Training for better results\n\n1 on 1 Review and assesments \n\nIncreases Sprinting,Strength &amp; Immunity  " />
+            <Button
+                android:id="@+id/special_button2"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:background="@drawable/selector_blue_19dp"
+                android:paddingTop="3dp"
+                android:paddingLeft="5dp"
+
+                android:textColor="#f2f2f2"
+                android:fontFamily="@font/nexabold"
+                android:gravity="center"
+                android:onClick="pay_now"
+                android:text="Pay Now"
+                android:textSize="12sp"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintHorizontal_bias="0.26"
+                />
+
+        </LinearLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

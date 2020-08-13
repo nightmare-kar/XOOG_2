@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/back_pink"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:id="@+id/cons"
+        android:fillViewport="true"
+        android:isScrollContainer="true"
+        tools:context=".MainActivity">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+           android:id="@+id/shape"
+            app:srcCompat="@drawable/black_rectangle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:layout_constraintTop_toBottomOf="@id/shape"
+            android:layout_marginTop="5dp"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="#000000"
+            app:layout_constraintBottom_toBottomOf="@id/shape"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:civ_border_width="5dp"
+            app:civ_border_color="#26eba3"/>
+
+
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:srcCompat="@drawable/back_arrow"
+            app:layout_constraintWidth_percent="0.07"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:id="@+id/edit_profile"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_back"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/nexabold"
+            android:gravity="center"
+            android:lineSpacingExtra="-0.7sp"
+            android:text="EDIT"
+            android:textColor="#141f26"
+            android:textSize="12.2sp"
+            app:layout_constraintHeight_percent="0.03"
+            app:layout_constraintWidth_percent="0.16"
+            tools:layout_editor_absoluteX="172dp"
+            tools:layout_editor_absoluteY="212dp" />
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/profile_image"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/profile_image"
+            app:layout_constraintEnd_toStartOf="@id/account"
+            app:srcCompat="@drawable/asset"
+            tools:layout_editor_absoluteX="147dp" />
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/nexabold"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="-13.2sp"
+            android:textColor="#ffffff"
+            android:textSize="18.2sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="01"
+app:layout_constraintEnd_toEndOf="@id/profile_image"
+            app:layout_constraintStart_toEndOf="@id/imageView3"
+            app:layout_constraintTop_toTopOf="@id/imageView3"
+            android:text="Account" />
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/name_layout"
+                app:layout_constraintTop_toBottomOf="@id/edit_profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/green_rect"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/title1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/nexabold"
+                    android:gravity="start|center_vertical"
+                    android:layout_gravity="start|center_vertical"
+                    android:paddingBottom="4dp"
+                    android:layout_weight="3"
+                    android:lineSpacingExtra="-5sp"
+                    android:text="Name"
+                    android:textColor="#141f26"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/Name"
+                    android:layout_width="0dp"
+                    android:paddingLeft="5dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="3"
+                    android:background="@android:color/transparent"
+
+                    android:lineSpacingExtra="1sp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/nexa_light"
+                    android:textColor="#141f26"
+                    android:gravity="start|center_vertical"
+                    android:layout_gravity="start|center_vertical"
+                    android:paddingBottom="4dp"
+
+                    />
+
+            </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/gender_layout"
+            app:layout_constraintTop_toBottomOf="@id/name_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/green_rect"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:paddingBottom="4dp"
+                android:fontFamily="@font/nexabold"
+                android:gravity="center_vertical|start"
+                android:lineSpacingExtra="-5sp"
+                android:text="Gender"
+                android:textColor="#141f26"
+                android:textSize="15sp" />
+
+            <Spinner
+
+                android:id="@+id/gender_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="start|center_vertical"
+                android:paddingBottom="4dp"
+                android:layout_weight="3"
+
+                android:background="@android:color/transparent"
+                android:spinnerMode="dropdown"
+                android:lineSpacingExtra="1sp"
+                android:textSize="15sp"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#141f26"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/phone_layout"
+            app:layout_constraintTop_toBottomOf="@id/dob_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/green_rect"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nexabold"
+                android:gravity="start|center_vertical"
+                android:lineSpacingExtra="-5sp"
+                android:layout_gravity="center"
+                android:paddingBottom="4dp"
+                android:text="Phone Number"
+                android:textColor="#141f26"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/phone_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="3"
+                android:paddingLeft="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="start|center_vertical"
+                android:paddingBottom="4dp"
+                android:lineSpacingExtra="1sp"
+                android:textSize="15sp"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#141f26"
+
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dob_layout"
+            app:layout_constraintTop_toBottomOf="@id/gender_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/green_rect"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/dob"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nexabold"
+                android:layout_gravity="center"
+                android:paddingBottom="4dp"
+                android:gravity="start|center_vertical"
+                android:lineSpacingExtra="-5sp"
+                android:text="Birthday"
+                android:textColor="#141f26"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:paddingLeft="5dp"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="start|center_vertical"
+                android:paddingBottom="4dp"
+                android:background="@android:color/transparent"
+                android:lineSpacingExtra="1sp"
+                android:textSize="15sp"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#141f26"
+
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/email_layout"
+            app:layout_constraintTop_toBottomOf="@id/phone_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/green_rect"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nexabold"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="center"
+                android:paddingBottom="4dp"
+                android:lineSpacingExtra="-5sp"
+                android:text="Email"
+                android:textColor="#141f26"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/email_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="3"
+                android:paddingLeft="5dp"
+                android:background="@android:color/transparent"
+
+                android:lineSpacingExtra="1sp"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="start|center_vertical"
+                android:paddingBottom="4dp"
+                android:textSize="15sp"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#141f26"
+
+
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/grade_layout"
+            app:layout_constraintTop_toBottomOf="@id/email_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/green_rect"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/grade"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nexabold"
+                android:gravity="start|center_vertical"
+                android:lineSpacingExtra="-5sp"
+                android:layout_gravity="center"
+                android:paddingBottom="4dp"
+                android:text="Grade/Class"
+                android:textColor="#141f26"
+                android:textSize="15sp" />
+
+            <Spinner
+
+                android:id="@+id/grade_spinner"
+                android:layout_width="0dp"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="start|center_vertical"
+                android:paddingBottom="4dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#141f26"
+
+                android:background="@android:color/transparent"
+                android:spinnerMode="dropdown"
+                android:lineSpacingExtra="1sp"
+                android:textSize="15sp"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/schoolCode_layout"
+            app:layout_constraintTop_toBottomOf="@id/grade_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/green_rect"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/schoolCode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nexabold"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="center"
+                android:paddingBottom="4dp"
+                android:lineSpacingExtra="-5sp"
+                android:text="School Code"
+                android:textColor="#141f26"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/schoolCode_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:layout_weight="3"
+                android:background="@android:color/transparent"
+
+                android:lineSpacingExtra="1sp"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="start|center_vertical"
+                android:paddingBottom="4dp"
+                android:textSize="15sp"
+                android:fontFamily="@font/nexa_light"
+                android:textColor="#141f26"
+
+                />
+
+        </LinearLayout>
+
+
+
+
+
+
+        <ImageView
+            android:id="@+id/bottom_shape"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="50dp"
+            android:adjustViewBounds="true"
+            android:translationX="30dp"
+            android:scaleType="fitXY"
+            android:translationY="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintTop_toBottomOf="@+id/schoolCode_layout"
+            app:layout_constraintWidth_percent="0.4"
+            app:srcCompat="@drawable/ic_shape_account" />
+        <ImageView
+            android:id="@+id/done"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.13"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/bottom_shape"
+            app:layout_constraintBottom_toTopOf="@id/bottom_shape"
+            app:layout_constraintTop_toTopOf="@id/bottom_shape"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/asst_done"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "198000890747",
+    "firebase_url": "https://xoog-75949.firebaseio.com",
+    "project_id": "xoog-75949",
+    "storage_bucket": "xoog-75949.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198000890747:android:e86f99052d622b0c29e3de",
+        "android_client_info": {
+          "package_name": "com.example.datatrasfer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198000890747-a7i64rcaq3tbntc3iq3bj5718a05j2r4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiWnjTQZlK8JCGjRmSxR9yLw_U9UAx2Bw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198000890747-a7i64rcaq3tbntc3iq3bj5718a05j2r4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198000890747:android:2fe23c43b692087f29e3de",
+        "android_client_info": {
+          "package_name": "com.example.xoog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198000890747-a7i64rcaq3tbntc3iq3bj5718a05j2r4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiWnjTQZlK8JCGjRmSxR9yLw_U9UAx2Bw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198000890747-a7i64rcaq3tbntc3iq3bj5718a05j2r4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198000890747:android:eeab1dc75f2e204f29e3de",
+        "android_client_info": {
+          "package_name": "com.karrit.xoog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198000890747-6icmuc0r36nkalr63t0cqf90h8sbtg0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.karrit.xoog",
+            "certificate_hash": "410f22a9dd4d61542920f0e7173fde3da1754119"
+          }
+        },
+        {
+          "client_id": "198000890747-a7i64rcaq3tbntc3iq3bj5718a05j2r4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiWnjTQZlK8JCGjRmSxR9yLw_U9UAx2Bw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198000890747-a7i64rcaq3tbntc3iq3bj5718a05j2r4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

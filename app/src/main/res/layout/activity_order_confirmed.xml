@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4c1088"
+    tools:context=".Order_confirmed">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_confirm_order_shape" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.47" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginBottom="80dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.80"
+        app:srcCompat="@drawable/shop" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintWidth_percent="0.60"
+        android:translationX="-60dp"
+        android:translationY="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/character_confrim_order" />
+
+    <TextView
+        android:fontFamily="@font/mons_bold"
+        android:id="@+id/order_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:lineSpacingExtra="-3.7sp"
+        android:textColor="#ffffff"
+        android:textSize="50.8sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0"
+        android:text="ORDER\nCONFIRMED " />
+
+    <TextView
+        android:fontFamily="@font/mons_thin"
+        android:id="@+id/have"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:gravity="end"
+        android:lineSpacingExtra="-1.8sp"
+        android:text="Have a"
+        android:textColor="#ffffff"
+        android:textSize="27sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_confirm" />
+
+    <TextView
+        android:translationY="-8dp"
+        android:fontFamily="@font/mons_semibold"
+        android:id="@+id/xoogastic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:gravity="end"
+        android:lineSpacingExtra="-1.8sp"
+        android:text="XOOGASTIC"
+        android:textColor="#ffffff"
+        android:textSize="27sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/have" />
+
+    <TextView
+        android:translationY="-16dp"
+        android:fontFamily="@font/mons_thin"
+        android:id="@+id/day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:gravity="end"
+        android:lineSpacingExtra="-1.8sp"
+        android:text="Day"
+        android:textColor="#ffffff"
+        android:textSize="27sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xoogastic" />
+
+    <ImageView
+        android:id="@+id/ok"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/day"
+        android:layout_marginTop="10dp"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintDimensionRatio="1.1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.11"
+        app:srcCompat="@drawable/ok_button" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

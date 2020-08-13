@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff00</color>
+    <color name="colorPrimaryDark">#141f26</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="my_spinner_text_color">#141f26</color>
+    <drawable name="blue_colour_list_slot">#3587f2</drawable>
+    <drawable name="address_list_slot">#7f25d9</drawable>
+    <color name="dark_green">#025059</color>
+    <color name="light_green">#4d848a</color>
+    <color name="blue">#3587f2</color>
+    <color name="dark_blue">#07346f</color>
+    <color name="dark_violet">#2f0459</color>
+    <color name="orange">#f68b0f</color>
+    <color name="orange_icon_bg">#ffc71c</color>
+    <color name="dark_orange">#ac601a</color>
+    <color name="white">#ffffffff</color>
+    <color name="dark_white">#adadad</color>
+    <color name="yellow_parent">
+
+        #f2cf1d
+    </color>
+    <color name="black">#000000</color>
+</resources>

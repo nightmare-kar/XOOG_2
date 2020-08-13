@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cons"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".exer_do_basic">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timer_text"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/timer_ring"
+        android:fontFamily="@font/mons_black"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/videoView"
+        app:layout_constraintTop_toTopOf="@id/videoView" />
+    <TextView
+        android:id="@+id/ex_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons_bold"
+        android:gravity="center"
+
+        android:textColor="#2f0459"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@id/timer_text"
+        app:layout_constraintStart_toStartOf="@id/timer_text"
+
+        app:layout_constraintTop_toBottomOf="@id/timer_text" />
+
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_ex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+
+        app:constraint_referenced_ids="videoView,ex_name,timer_text" />
+
+
+
+    <ImageView
+        android:id="@+id/back_rest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_green" />
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/orange_circle"
+        app:layout_constraintTop_toTopOf="@id/guideline20"
+        app:layout_constraintEnd_toEndOf="@id/guideline40"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintDimensionRatio="1:1"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+<ImageView
+    android:id="@+id/character"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:srcCompat="@drawable/character_rest"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="40dp"
+    app:layout_constraintEnd_toEndOf="@id/guideline40"
+    app:layout_constraintDimensionRatio="1:1"/>
+    <ImageView
+        android:id="@+id/orange_line"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        app:layout_constraintStart_toEndOf="@id/circle"
+        android:translationX="-20dp"
+        app:layout_constraintTop_toTopOf="@id/guideline70"
+        app:srcCompat="@drawable/orangle_rounded_rect"
+        app:layout_constraintWidth_percent="0.34"/>
+    <TextView
+        android:id="@+id/time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/mons_bold"
+        app:layout_constraintTop_toTopOf="@id/orange_line"
+        app:layout_constraintBottom_toBottomOf="@id/orange_line"
+        app:layout_constraintStart_toStartOf="@id/orange_line"
+        app:layout_constraintEnd_toEndOf="@id/orange_line"
+        app:layout_constraintHorizontal_bias="0.3"
+        android:lineSpacingExtra="-18.7sp"
+        android:gravity="center_horizontal"
+        android:text="TIME"
+        />
+
+    <TextView
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:text="20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timer_text_rest"
+        android:fontFamily="@font/mons_black"
+        app:layout_constraintTop_toBottomOf="@id/time_title"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@id/time_title"
+        app:layout_constraintEnd_toEndOf="@id/time_title"
+        />
+    <TextView
+        android:id="@+id/seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25.3sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="-58.8sp"
+        android:fontFamily="@font/mons_bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/timer_text_rest"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintStart_toStartOf="@id/time_title"
+        app:layout_constraintEnd_toEndOf="@id/time_title"
+        android:text="Seconds"
+        />
+    <TextView
+        android:id="@+id/oof"
+        app:layout_constraintStart_toEndOf="@id/guideline40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/mons_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="114.8sp"
+        android:textColor="#f28705"
+        android:lineSpacingExtra="-84.3sp"
+        android:gravity="center_horizontal"
+        android:text="OOF!"
+        />
+    <TextView
+        android:id="@+id/lets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="37sp"
+        android:textColor="#ffffff"
+
+        app:layout_constraintTop_toBottomOf="@id/oof"
+        app:layout_constraintStart_toStartOf="@id/oof"
+        app:layout_constraintEnd_toEndOf="@id/oof"
+        android:lineSpacingExtra="60.7sp"
+        android:translationY="-20dp"
+        android:fontFamily="@font/mons_bold"
+        android:text="L e t s    t a k e"
+        />
+    <TextView
+        android:id="@+id/someRest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/lets"
+        app:layout_constraintStart_toStartOf="@id/lets"
+        app:layout_constraintEnd_toEndOf="@id/lets"
+        android:textSize="47.5sp"
+        android:translationY="-40dp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/mons_bold"
+        android:lineSpacingExtra="60.7sp"
+        android:text="Some  Rest"
+        />
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_rest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="timer_text_rest,back_rest,orange_line,circle,time_title,seconds,oof,lets,someRest,character" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

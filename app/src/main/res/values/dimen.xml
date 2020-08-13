@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="value_dots">15dp</dimen>
+    <dimen name="value_dots_getStarted">8dp</dimen>
+    <dimen name="camera">50dp</dimen>
+
+</resources>

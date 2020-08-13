@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@drawable/blue_gradient"
+        tools:context=".choose_subscription">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:adjustViewBounds="true"
+                android:layout_width="0dp"
+                android:scaleType="fitXY"
+                android:layout_height="280dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_shape_table"
+                tools:layout_editor_absoluteX="13dp"
+                tools:layout_editor_absoluteY="23dp" />
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="36.2sp"
+                android:textColor="#57c6f2"
+                android:lineSpacingExtra="-2.5sp"
+                android:fontFamily="@font/mons_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:gravity="end"
+                android:text="CHOOSE AND\nUPGRADE "
+                />
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.8sp"
+                android:textColor="#57c6f2"
+                android:lineSpacingExtra="8.8sp"
+                android:fontFamily="@font/mons_bold"
+                app:layout_constraintTop_toBottomOf="@id/title1"
+                tools:text="with XOOG"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <TableLayout
+                android:id="@+id/tablelayout"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_blue_no_shadow"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintTop_toBottomOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+
+
+                <TableRow
+                    android:paddingTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/head1"
+                        android:fontFamily="@font/mons_semibold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:textSize="16sp"
+                        android:textColor="#f2f2f2"
+                        android:gravity="center"
+                        android:text="FEATURES "
+                        android:layout_gravity="center_vertical"
+                        />
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/head2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/mons_semibold"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textColor="#f2f2f2"
+                        android:text="7 DAYS\nFree Trial "
+                        />
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/head3"
+                        android:fontFamily="@font/mons_semibold"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="#f2f2f2"
+                        android:gravity="center"
+                        android:letterSpacing="-0.02"
+                        android:text="XOOG\nMembership "
+                        />
+
+
+
+                </TableRow>
+                <View android:layout_width="match_parent"
+                    android:background="#ffffffff"
+                    android:layout_height="2dp" />
+                <TableRow
+
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:lineSpacingExtra="-2sp"
+                        android:fontFamily="@font/nexa_light"
+                        android:paddingLeft="20dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="13.7sp"
+                        android:textColor="#f2f2f2"
+                        android:text="Daily Activities\nEngaging kids "
+                        />
+
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_yes"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_yes"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+
+
+
+                </TableRow>
+                <View android:layout_width="match_parent"
+                    android:background="#ffffffff"
+                    android:layout_height="2dp" />
+                <TableRow
+
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/text2"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:paddingLeft="20dp"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="-2sp"
+                        android:textSize="13.7sp"
+                        android:fontFamily="@font/nexa_light"
+                        android:textColor="#f2f2f2"
+                        android:text="Sports Fitness\nTo improve performance and strength"
+                        />
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_yes"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_yes"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+
+
+
+                </TableRow>
+
+                <View android:layout_width="match_parent"
+                    android:background="#ffffffff"
+                    android:layout_height="2dp" />
+                <TableRow
+
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_weight="2"
+                        android:fontFamily="@font/nexa_light"
+                        android:lineSpacingExtra="-2sp"
+                        android:paddingLeft="20dp"
+                        android:text="Rubiks Puzzles\nto improve concentration
+and coordination"
+                        android:textColor="#f2f2f2"
+                        android:textSize="13.7sp" />
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_yes"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_yes"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+
+
+
+                </TableRow>
+
+                <View android:layout_width="match_parent"
+                    android:background="#ffffffff"
+                    android:layout_height="2dp" />
+                <TableRow
+
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:fontFamily="@font/nexa_light"
+                        android:lineSpacingExtra="-2sp"
+                        android:paddingLeft="20dp"
+                        android:text="Customised Programs\nDeveloped as per the kids requirement "
+                        android:textColor="#f2f2f2"
+                        android:textSize="13.7sp" />
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_no"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_yes"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+
+
+
+                </TableRow>
+
+                <View android:layout_width="match_parent"
+                    android:background="#ffffffff"
+                    android:layout_height="2dp" />
+                <TableRow
+                    android:paddingBottom="10dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/text5"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:paddingLeft="20dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="13.7sp"
+                        android:fontFamily="@font/nexa_light"
+                        android:textColor="#f2f2f2"
+                        android:lineSpacingExtra="-2sp"
+                        android:text="Get Exciting Gifts\nwith points earned
+through activitites "
+                        />
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_no"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+                    <View android:layout_width="2dp"
+                        android:background="#ffffffff"
+                        android:layout_height="match_parent"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        app:srcCompat="@drawable/icon_yes"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"/>
+
+
+
+                </TableRow>
+
+
+
+            </TableLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tablelayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <Space
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"/>
+                <Button
+                    android:id="@+id/trial"
+                    android:onClick="free_trial_function"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_7_day"
+                    android:fontFamily="@font/nexabold"
+                    android:text="7 Day Trial"
+                    android:textSize="12sp"
+                    android:textColor="#f2f2f2"
+                    android:gravity="center"/>
+                <Button
+                    android:id="@+id/subscription"
+                    android:onClick="subscription_function"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_subscribe"
+                    android:fontFamily="@font/nexabold"
+                    android:text="Subscribe"
+                    android:textSize="12sp"
+                    android:textColor="#296cf2"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginTop="60dp"
+                android:id="@+id/bottomCircle"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.9"
+                android:layout_height="63.3dp"
+                app:layout_constraintTop_toBottomOf="@+id/tablelayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="1"
+                android:src="@drawable/half_rounded_light"/>
+            <TextView
+                android:id="@+id/text_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/bottomCircle"
+                app:layout_constraintStart_toStartOf="@id/bottomCircle"
+                app:layout_constraintEnd_toEndOf="@id/bottomCircle"
+                app:layout_constraintTop_toTopOf="@id/bottomCircle"
+                android:textSize="25.2sp"
+                android:textColor="#f2f2f2"
+                android:fontFamily="@font/nexabold"
+                android:gravity="center_horizontal"
+                android:text="CHOOSE YOUR PLAN\nTO AVAIL EXCITING OFFERS"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+

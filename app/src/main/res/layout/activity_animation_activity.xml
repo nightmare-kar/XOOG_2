@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cons"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sky"
+    app:layoutDescription="@xml/scene_01"
+    tools:context=".animation_activity">
+
+
+    <ImageView
+        android:id="@+id/sun_down"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        app:srcCompat="@drawable/sun" />
+
+    <ImageView
+        android:id="@+id/sun_up"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toBottomOf="@id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:srcCompat="@drawable/sun" />
+
+
+    <ImageView
+        android:id="@+id/sun"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sun" />
+
+
+    <ImageView
+        android:id="@+id/bird"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:translationY="-30dp"
+        android:translationX="-30dp"
+        app:layout_constraintBottom_toBottomOf="@id/sun"
+        app:layout_constraintEnd_toStartOf="@id/sun"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="@+id/sun"
+        app:layout_constraintTop_toTopOf="@id/sun"
+        app:layout_constraintWidth_percent="0.3"
+        app:srcCompat="@drawable/bird" />
+
+
+    <ImageView
+        android:id="@+id/mountain"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/mountain"
+        android:translationY="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.63"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <ImageView
+        android:id="@+id/rect_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rect_2"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+    <ImageView
+        android:id="@+id/rect_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rect_3"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toEndOf="@id/rect_1"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+    <ImageView
+        android:id="@+id/rect_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rect_4"
+        app:layout_constraintHeight_percent="0.27"
+        app:layout_constraintStart_toEndOf="@+id/rect_2"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+    <ImageView
+        android:id="@+id/rect_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rect_5"
+        app:layout_constraintHeight_percent="0.23"
+        app:layout_constraintStart_toEndOf="@id/rect_3"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+    <ImageView
+        android:id="@+id/rect_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rect_6"
+        app:layout_constraintHeight_percent="0.30"
+        app:layout_constraintStart_toEndOf="@+id/rect_4"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+    <ImageView
+        android:id="@+id/rect_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rect_7"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toEndOf="@+id/rect_5"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+    <ImageView
+        android:id="@+id/rect_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rect_8"
+        app:layout_constraintHeight_percent="0.30"
+        app:layout_constraintStart_toEndOf="@id/rect_6"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+    <ImageView
+        android:id="@+id/rect_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rect_9"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toEndOf="@+id/rect_7"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+    <ImageView
+        android:id="@+id/rect_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.24"
+        app:layout_constraintStart_toEndOf="@id/rect_8"
+        app:layout_constraintWidth_percent="0.07"
+        app:srcCompat="@drawable/rect_rounded" />
+
+
+    <ImageView
+        android:id="@+id/water_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/water_1" />
+
+    <ImageView
+        android:id="@+id/water_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/water_2" />
+
+    <ImageView
+        android:id="@+id/character"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:onClick="click"
+        android:scaleType="fitXY"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintWidth_percent="0.05"
+        app:srcCompat="@drawable/character_rest" />
+
+
+
+    <TextView
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:background="@drawable/selector_orange_button"
+        android:clickable="true"
+        android:text="Start"
+        android:textColor="#ffffffff"
+        android:fontFamily="@font/mons_bold"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_marginRight="20dp"
+app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/water_top" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.14" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

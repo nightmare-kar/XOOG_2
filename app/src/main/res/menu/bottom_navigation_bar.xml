@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/gamePage"
+    android:icon="@drawable/asst_gaem"
+    android:title="Game"/>
+    <item android:id="@+id/LeaderboardPage"
+        android:icon="@drawable/asst_leaderboard"
+        android:title="Leader Board"/>
+    <item android:id="@+id/shopPage"
+        android:icon="@drawable/asst_shop"
+        android:title="Shop"/>
+    <item android:id="@+id/menuPage"
+        android:icon="@drawable/asst_menu"
+        android:title="Menu"/>
+
+
+
+</menu>

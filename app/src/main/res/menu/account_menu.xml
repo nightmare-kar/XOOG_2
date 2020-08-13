@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/account"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:actionLayout="@layout/layout_menu"
+            android:title="Account" />
+
+        <item
+            android:id="@+id/referal"
+            android:icon="@drawable/ic_group_black_24dp"
+            android:title="Referral" />
+        <item
+            android:id="@+id/upgrade"
+            android:icon="@drawable/ic_double_arrow_24px"
+            android:title="Upgrade" />
+
+        <item
+            android:id="@+id/bookcall"
+            android:icon="@drawable/ic_support_agent_24px"
+            android:title="Contact Mentor" />
+        <item
+            android:id="@+id/switch_profile"
+            android:icon="@drawable/ic_cached_dark"
+            android:title="Switch profile" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_power_settings_dark"
+            android:title="Log out" />
+
+
+    </group>
+
+
+</menu>
