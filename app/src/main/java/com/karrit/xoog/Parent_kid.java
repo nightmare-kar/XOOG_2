@@ -59,21 +59,7 @@ public class Parent_kid extends AppCompatActivity {
         group_2=findViewById(R.id.group_kid_2);
 
 
-       sql_sports sqlSports=new sql_sports(this,share.getCurrent_kid());
-        ContextWrapper cw = new ContextWrapper(getApplication());
-        File directory = cw.getDir("xoog_excercise",MODE_PRIVATE);
-        String PREFS_NAME = "z79SZBhpvWU1cU9SxaSKhkqc51r21exer1_1_health_type";
 
-        task_details taskHealth=new task_details(this,share.getCurrent_kid(),getString(R.string.health_type));
-
-
-
-
-        SharedPreferences settings = Parent_kid.this.getSharedPreferences(PREFS_NAME,
-                Context.MODE_PRIVATE);
-
-        String key="z79SZBhpvWU1cU9SxaSKhkqc51r21_1_1_ex_count";
-        Log.i(TAG,"time remain shared "+settings.getInt(key,0));
 
 
 
