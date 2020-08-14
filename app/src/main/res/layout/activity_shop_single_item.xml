@@ -173,7 +173,9 @@ android:fontFamily="@font/nexabold"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back_arrow_white"
+        app:srcCompat="@drawable/selector_back_button"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

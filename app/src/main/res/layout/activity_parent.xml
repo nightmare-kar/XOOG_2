@@ -51,7 +51,9 @@ android:background="#141f26
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back_arrow_white" />
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/selector_back_button"/>
 
         <ImageView
             android:id="@+id/next"

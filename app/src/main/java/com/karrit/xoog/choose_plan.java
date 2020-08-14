@@ -309,16 +309,9 @@ boolean Mrec,Mrec_Payment;
         }
 
 
-        Intent i = new Intent(this,setting_up.class);
-        i.putExtra("course_type",course_type);
-
-
-       // startActivity(i);
-    }
-    public void getApiKey(){
-
 
     }
+
     public void startPayment(String payment) {
         /*
           You need to pass current activity in order to let Razorpay create CheckoutActivity

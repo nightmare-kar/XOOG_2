@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,6 +36,13 @@ CollectionReference db;
         pincode=findViewById(R.id.pincode);
         landmark=findViewById(R.id.landmark);
         country=findViewById(R.id.country);
+        ImageView close=findViewById(R.id.back);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         title=findViewById(R.id.title);
         shared share =new shared(this);
         db=FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getUser_id()+"-address");

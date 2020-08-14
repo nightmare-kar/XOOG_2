@@ -55,7 +55,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back_arrow_white" />
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/selector_back_button" />
 
 
     <androidx.constraintlayout.widget.Guideline

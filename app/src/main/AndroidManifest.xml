@@ -20,46 +20,43 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".pose_day"></activity>
-        <activity android:name=".Task_finish" />
-        <activity android:name=".School_program" />
-        <activity android:name=".TermsAndConditions" />
+        <activity android:name=".pose_day"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Task_finish"   android:screenOrientation="portrait"/>
+        <activity android:name=".School_program"   android:screenOrientation="portrait" />
+        <activity android:name=".TermsAndConditions"   android:screenOrientation="portrait" />
         <activity
             android:name=".exer_do_basic"
             android:screenOrientation="landscape" />
         <activity
             android:name=".exer_learn"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity_log" />
-        <activity android:name=".Parent" />
-        <activity android:name=".Order_confirmed" />
-        <activity android:name=".Add_Address" />
-        <activity android:name=".Shop_single_item" />
+        <activity android:name=".activity_log"   android:screenOrientation="portrait"/>
+        <activity android:name=".Parent"   android:screenOrientation="portrait" />
+        <activity android:name=".Order_confirmed"   android:screenOrientation="portrait"/>
+        <activity android:name=".Add_Address"   android:screenOrientation="portrait"/>
+        <activity android:name=".Shop_single_item"   android:screenOrientation="portrait"/>
         <activity
             android:name=".exercise_do1"
             android:configChanges="orientation|screenSize" />
         <activity
             android:name=".excercise_do"
             android:screenOrientation="landscape" />
-        <activity android:name=".task_activity_rubik" />
-        <activity android:name=".Task_list" />
-        <activity android:name=".slot_book" />
+        <activity android:name=".task_activity_rubik"   android:screenOrientation="portrait"/>
+        <activity android:name=".Task_list"   android:screenOrientation="portrait"/>
+        <activity android:name=".slot_book"   android:screenOrientation="portrait"/>
         <activity
             android:name=".animation_activity"
             android:screenOrientation="landscape" />
-        <activity android:name=".setting_up" />
-        <activity android:name=".choose_subscription" />
-        <activity android:name=".Home_page" />
-        <activity android:name=".account_subscipe" />
-        <activity android:name=".Parent_kid" />
-        <activity android:name=".choose_plan" />
-        <activity android:name=".referra" />
-        <activity android:name=".kids_account" />
-        <activity android:name=".verification_done" />
-        <activity android:name=".Verification" />
-        <activity android:name=".login" />
-        <activity android:name=".GetStarted" />
-        <activity android:name=".menu_book_call" />
+        <activity android:name=".Home_page"   android:screenOrientation="portrait"/>
+        <activity android:name=".account_subscipe"   android:screenOrientation="portrait"/>
+        <activity android:name=".Parent_kid"   android:screenOrientation="portrait"/>
+        <activity android:name=".choose_plan"   android:screenOrientation="portrait"/>
+        <activity android:name=".referra"   android:screenOrientation="portrait"/>
+        <activity android:name=".kids_account"   android:screenOrientation="portrait" />
+        <activity android:name=".login"   android:screenOrientation="portrait"/>
+        <activity android:name=".GetStarted"   android:screenOrientation="portrait"/>
+        <activity android:name=".menu_book_call"   android:screenOrientation="portrait"/>
 
         <receiver android:name=".CallReceiver">
             <intent-filter>
@@ -85,6 +82,7 @@
 
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

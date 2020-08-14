@@ -27,8 +27,9 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        app:srcCompat="@drawable/ic_back_arrow_white" />
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/selector_back_button" />
 
     <TextView
         android:id="@+id/your_ques"
@@ -51,12 +52,13 @@
         android:layout_height="0dp"
         android:background="@drawable/des_rounded_rect"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
          android:gravity="start|top"
         android:paddingTop="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
+
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.25"
