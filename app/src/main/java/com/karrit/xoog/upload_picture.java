@@ -35,6 +35,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -282,6 +283,7 @@ String kid_id,user_id;
         hashMap.put("level",level);
         hashMap.put("course_type","rubik_type");
         hashMap.put("task",task);
+        hashMap.put("Timestamp", Timestamp.now());
         hashMap.put("status","new");
         db.add(hashMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
@@ -376,7 +378,7 @@ imageView.setMaxWidth(dp);
     }
     public void showBack_Dialog(){
         final Dialog dialogSports = new Dialog(getActivity());
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(true);
         dialogSports.setContentView(R.layout.dialog_back);
         Window window = dialogSports.getWindow();

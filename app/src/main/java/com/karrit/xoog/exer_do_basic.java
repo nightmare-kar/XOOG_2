@@ -442,7 +442,7 @@ public void restfn(){
     public void showDialog_start(){
         cons.setClickable(false);
         final Dialog dialogSports = new Dialog(exer_do_basic.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.start_layout_dialog);
         Window window = dialogSports.getWindow();

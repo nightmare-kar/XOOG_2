@@ -58,6 +58,7 @@ public class choose_plan extends AppCompatActivity implements PaymentResultListe
    String refId;
     TextView[] titleList = new TextView[3];
     int rate_rubik,rate_1_sport,rate_3_sport,rate_1_special,rate_3_special;
+    int rate_buy_package;
     ImageView[] imageViews = new ImageView[3];
 
     LinearLayout[] linearLayouts = new LinearLayout[3];
@@ -83,6 +84,7 @@ boolean Mrec,Mrec_Payment;
         setContentView(R.layout.activity_choose_plan);
         rate_rubik=0;
         rate_1_special=0;
+        rate_buy_package=0;
         ImageView close=findViewById(R.id.back);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -361,12 +363,13 @@ boolean Mrec,Mrec_Payment;
             Log.i(TAG, "course type" + course_type);
 
             Log.i(TAG, "payment sucess");
-            if (!accountDetails.getRefferedBy().equals(getString(R.string.empty))) {
-                checkReferral(s);
-                Log.i(TAG, "referral");
-            }else {
+            //if (!accountDetails.getRefferedBy().equals(getString(R.string.empty))) {
+              //  checkReferral(s);
+      //          Log.i(TAG, "referral");
+        //    }else {
                 updatePayment(s);
-            }
+                TransactFn();
+           // }
 
 
         }else {
@@ -376,6 +379,64 @@ boolean Mrec,Mrec_Payment;
             Mrec_Payment=true;
         }
 
+    }
+    public void TransactFn(){
+        Log.i(TAG,"inside transaction");
+        final DocumentReference documentReference= FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("account_details");
+        final DocumentReference leaderBoard=FirebaseFirestore.getInstance().collection("leaderboard").document(share.getCurrent_kid());
+        final FirebaseFirestore db=FirebaseFirestore.getInstance();
+        db.runTransaction(new Transaction.Function<Void>() {
+            @Override
+            public Void apply(Transaction transaction) throws FirebaseFirestoreException {
+                Log.i(TAG,"apply transaction");
+                DocumentSnapshot snapshot = transaction.get(documentReference);
+
+                // Note: this could be done without a transaction
+                //       by updating the population using FieldValue.increment()
+                    Long newXcash = snapshot.getLong("xcash") + rate_buy_package;
+                    transaction.update(documentReference, "xcash", newXcash);
+                    accountDetails.setXcash(newXcash.intValue());
+                    accountDetails.apply();
+                Long newXcore = snapshot.getLong("xcore") + rate_buy_package;
+                transaction.update(documentReference, "xcore", newXcore);
+                transaction.update(leaderBoard,"xcore",newXcore);
+                accountDetails.setXcore(newXcore.intValue());
+                accountDetails.apply();
+                // Success
+                return null;
+            }
+        }).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d(TAG, "Transaction success!");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "Transaction failure.", e);
+                HashMap<String,Object> user_refer=new HashMap<>();
+
+                user_refer.put("kid_id",share.getCurrent_kid());
+                user_refer.put("credits",rate_buy_package);
+                user_refer.put("error_type","transaction failure update rate buy package");
+                db.collection("errors").add(user_refer).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        Log.i(TAG,"on Complete of error upload");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i(TAG,"on failure error upload");
+                    }
+                });
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.i(TAG,"transactions complete");
+            }
+        });
     }
     public void UploadTask(){
         if(course_type.equals(getString(R.string.rubik_type))){
@@ -534,7 +595,7 @@ boolean Mrec,Mrec_Payment;
     }
 
     public void showMonth(final String course_type){
-        dialogSubs.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSubs.setCancelable(true);
         dialogSubs.setContentView(R.layout.dialog_choose_package);
         Window window = dialogSubs.getWindow();
@@ -605,6 +666,7 @@ boolean Mrec,Mrec_Payment;
                     rate_3_special=task.getResult().getLong("rate_3_special").intValue();
                     rate_1_sport=task.getResult().getLong("rate_1_sport").intValue();
                     rate_3_sport=task.getResult().getLong("rate_3_sport").intValue();
+                    rate_buy_package=task.getResult().getLong("rate_buy_package").intValue();
                     api_key=task.getResult().getString("razor_api_key");
                     updated=true;
                 }else{
@@ -697,6 +759,9 @@ boolean Mrec,Mrec_Payment;
             }
         });
     }
+    public void ScoreUpdate(){
+
+    }
     public void checkReferral(final String s){
         FirebaseFirestore db=FirebaseFirestore.getInstance();
         DocumentReference doc= db.collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("payments");
@@ -783,7 +848,7 @@ boolean Mrec,Mrec_Payment;
     public void showDialog_start(){
 
 
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.no_internet_connection);
         Window window = dialogSports.getWindow();
@@ -799,7 +864,7 @@ boolean Mrec,Mrec_Payment;
     public void showDialog_DontClose(){
 
 
-        dialogUpload.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogUpload.setCancelable(false);
         dialogUpload.setContentView(R.layout.uploading_dialog);
         Window window = dialogUpload.getWindow();

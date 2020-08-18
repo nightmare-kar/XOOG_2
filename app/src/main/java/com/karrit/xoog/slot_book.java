@@ -42,6 +42,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.TimeZone;
 
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
@@ -214,12 +215,13 @@ public class slot_book extends AppCompatActivity {
             }
         });
 //---------------------Confirm button on click--------------------------
-        Button confirm = findViewById(R.id.confirm);
+        final Button confirm = findViewById(R.id.confirm);
         confirm.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 if(selected){
+                    confirm.setClickable(false);
                 if(change==1){
                     Log.i(TAG,"change is 1");
                     final CollectionReference collectionReference_user=db.collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()+"-link");
@@ -331,7 +333,13 @@ public class slot_book extends AppCompatActivity {
                         Log.i(TAG,"got mentor"+mentor_id);
                         task_details.setMentor_id(mentor_id);
                         task_details.apply();
-                        loadTimeSlot(start_date_string);
+                        if(mentor_id!=null) {
+                            loadTimeSlot(start_date_string);
+                        }else {
+                            task_details.setMentor_id(getString(R.string.empty));
+                            task_details.apply();
+                            getMentorId();
+                        }
                     }
                 }});
 
@@ -428,6 +436,7 @@ public class slot_book extends AppCompatActivity {
         put_user.put("date",dateFormat.format(selectedDate.getTime()));
         put_user.put("level",task_rubik.getCurrent_level());
         put_user.put("task",task_rubik.getCurrent_task());
+        put_user.put("timezone", TimeZone.getDefault());
         put_user.put("topic",topic);
         put_user.put("link",getString(R.string.empty));
         db.collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()+"-link").add(put_user).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
@@ -453,6 +462,7 @@ public class slot_book extends AppCompatActivity {
             HashMap<String, Object> put_slot = new HashMap<String, Object>();
             put_slot.put("slot_id", slot_start);
             put_slot.put("booking", true);
+            put_slot.put("timezone",TimeZone.getDefault());
             put_slot.put("topic",topic);
 
             put_slot.put("user_id",share.getCurrent_kid());
@@ -465,10 +475,6 @@ public class slot_book extends AppCompatActivity {
             });
             slot_start++;
         }
-
-
-
-
        showSlotBookedDialog();
     }
 
@@ -479,7 +485,6 @@ public class slot_book extends AppCompatActivity {
         db.collection("mentor").document(mentor_id).collection(date).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
                 if (task.isSuccessful()) {
                     if (task.getResult().isEmpty()) {
                         showList(date);
@@ -653,7 +658,7 @@ public class slot_book extends AppCompatActivity {
     public void showDialog_start(){
 
         dialogSports = new Dialog(slot_book.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.no_internet_connection);
         Window window = dialogSports.getWindow();
@@ -668,7 +673,7 @@ public class slot_book extends AppCompatActivity {
     }
     public void showSlotBookedDialog(){
       dialogSubs = new Dialog(slot_book.this);
-        dialogSubs.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSubs.setCancelable(false);
         dialogSubs.setContentView(R.layout.dialog_slot_booked);
         Window window = dialogSubs.getWindow();

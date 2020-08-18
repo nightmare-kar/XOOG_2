@@ -56,6 +56,7 @@ Boolean connected;
 
     };*/
 
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         set = (HashSet<String>) intent.getSerializableExtra("mySet");
@@ -64,8 +65,8 @@ Boolean connected;
         Log.i(TAG,"set "+set.toString());
         String name = "general";
        // SharedPreferences sharedPreferences= getApplicationContext().getSharedPreferences(name,MODE_PRIVATE);
-       SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        settings =preferences;
+        //
+        settings= PreferenceManager.getDefaultSharedPreferences(this);
         editor = settings.edit();
 
         Log.i(TAG,"count"+count);

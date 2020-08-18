@@ -476,7 +476,7 @@ public class exer_learn extends AppCompatActivity {
     }
     public void showDialog_Try(){
         final Dialog dialogTry = new Dialog(exer_learn.this);
-        dialogTry.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogTry.setCancelable(false);
         dialogTry.setContentView(R.layout.start_dialog_sports);
         Window window = dialogTry.getWindow();
@@ -500,7 +500,7 @@ public class exer_learn extends AppCompatActivity {
                 videoView.start();
                 slowMotion();
                 isSkip=true;
-                timeRemaining=Long.valueOf(120000);
+                timeRemaining=Long.valueOf(15000);
                 startTimer();
                 skip.setVisibility(View.VISIBLE);
             }
@@ -512,7 +512,7 @@ public class exer_learn extends AppCompatActivity {
     public void showDialog_start(){
         cons.setClickable(false);
         final Dialog dialogSports = new Dialog(exer_learn.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.start_layout_dialog);
         Window window = dialogSports.getWindow();

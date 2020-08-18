@@ -144,7 +144,6 @@ public class Home_page extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-
         profile=view.findViewById(R.id.profile_image);
         TextView textView=view.findViewById(R.id.username_text);
         textView.setText(accountDetails.getKid_name());

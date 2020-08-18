@@ -36,6 +36,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -152,7 +153,7 @@ public class upload_video extends Fragment {
 
 
 
-        storageReference= FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("users").child(share.getCurrent_kid()).child(getActivity().getString(R.string.sport_type)).child(level+"_"+task);
+        storageReference= FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("users").child(share.getCurrent_kid()).child(getActivity().getString(R.string.rubik_type)).child(level+"_"+task);
         db= FirebaseFirestore.getInstance().collection("users").document(user_id).collection(kid_id+"-upload_rubik");
         //------------add dots-----------------
         for(int i=0;i<count;i++){
@@ -309,6 +310,7 @@ public class upload_video extends Fragment {
         hashMap.put("task",task);
         hashMap.put("course_type","rubik_type");
         hashMap.put("status","new");
+        hashMap.put("Timestamp", Timestamp.now());
         db.add(hashMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -417,7 +419,7 @@ public class upload_video extends Fragment {
     }
     public void showBack_Dialog(){
         final Dialog dialogSports = new Dialog(getActivity());
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(true);
         dialogSports.setContentView(R.layout.dialog_back);
         Window window = dialogSports.getWindow();

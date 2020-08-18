@@ -13,10 +13,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.TimeZone;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
     private Context mContext;
@@ -37,8 +39,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         Log.i(TAG,"xcash"+xcash);
         Log.i(TAG,"kid id "+share.getCurrent_kid());
         this.mContext = mContext;
-        storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("shop");
-        this.mData = mData;
+
+        if((TimeZone.getDefault().getRawOffset())==(TimeZone.getTimeZone("Asia/Dubai").getRawOffset())){
+            Log.i(TAG,"utc");
+            storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("shop_UAE");
+
+        }else {
+            Log.i(TAG,"pther");
+            storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("shop");
+
+        }
+       this.mData = mData;
     }
 
 

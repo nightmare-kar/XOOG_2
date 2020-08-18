@@ -108,6 +108,7 @@ account_details accountDetails;
             Log.i(TAG,"sqlTypeRubik");
             Rubik_task_table_class task_table_class=sql_rubik.get_task_table(level,task);
             creditNum=task_table_class.getCredits();
+            Log.i(TAG,"credit num"+ creditNum);
             if(skip){
                 Log.i(TAG,"skip enabled");
                 creditNum=0;
@@ -248,10 +249,15 @@ account_details accountDetails;
                if(level>=task_details.getTotal_level()){
                    task_details.setCourse_id(getString(R.string.rubik_done));
                    task_details.createdb();
+                   if(!skip) {
+                       creditNum += sql_rubik.getBonusCredits(level);
+                   }
                    task_details.setCourse_id_Cloud(getString(R.string.rubik_done));
                    task_details.apply();
                }else {
-                   creditNum+=sql_rubik.getBonusCredits(level);
+                   if(!skip) {
+                       creditNum += sql_rubik.getBonusCredits(level);
+                   }
                    level++;
                    task=1;
                    task_details.setCurrent_level(level);
@@ -321,7 +327,7 @@ account_details accountDetails;
     public void showDialog_start(){
 
         dialogSports = new Dialog(Task_finish.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.no_internet_connection);
         Window window = dialogSports.getWindow();

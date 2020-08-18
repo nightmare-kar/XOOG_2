@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="350dp"
+    android:background="@android:color/transparent"
+    android:layout_height="300dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+            android:background="#FFECF7FA"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+          android:layout_gravity="end"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close_violet" />
+
+
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintDimensionRatio="1:1"
+
+               android:layout_gravity="center"
+                app:layout_constraintWidth_percent="0.3"
+                app:srcCompat="@drawable/png_leaderboard" />
+
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/rubik_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:gravity="center_horizontal"
+                android:text="CONGRATULATIONS!"
+                android:layout_gravity="center"
+                android:textColor="@color/dark_violet"
+                android:textSize="18sp"
+                />
+            <TextView
+                android:id="@+id/rubik_text_2"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/nexabold"
+                android:layout_height="wrap_content"
+                app:layout_constraintVertical_bias="0"
+                android:textSize="13.7sp"
+                android:layout_gravity="center"
+
+                android:textColor="@color/dark_violet"
+                android:gravity="center_horizontal"
+                android:text="You have completed 3*3 Rubiks Cube Program"
+                />
+            <TextView
+                android:id="@+id/rubik_text_3"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/nexa_light"
+                android:layout_height="wrap_content"
+                app:layout_constraintVertical_bias="0"
+                android:layout_gravity="center"
+                android:textSize="11sp"
+
+                android:textColor="@color/dark_violet"
+                android:gravity="center_horizontal"
+                android:text="You will receive your certification through email"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

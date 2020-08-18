@@ -135,6 +135,7 @@ public class Task_list extends AppCompatActivity {
                 Intent intent = new Intent(Task_list.this, Task_finish.class);
                 intent.putExtra("skip", true);
                 intent.putExtra("course_type", getString(R.string.rubik_type));
+                finish();
                 startActivity(intent);
             }
         });
@@ -222,6 +223,7 @@ public class Task_list extends AppCompatActivity {
                 }
             }else {
                 intent = new Intent(Task_list.this, task_activity_rubik.class);
+                finish();
                 startActivity(intent);
             }
         } else if (course_type.equals(getString(R.string.sport_type))) {
@@ -245,14 +247,17 @@ public class Task_list extends AppCompatActivity {
                     if (details_class.getEx_type().equals(getString(R.string.learn))) {
                         Log.i(TAG, "learn type");
                         intent = new Intent(Task_list.this, exer_learn.class);
+                         finish();
                         startActivity(intent);
                     } else if (details_class.getEx_type().equals(getString(R.string.do_type))) {
                         Log.i(TAG, "do type");
                         intent = new Intent(Task_list.this, exercise_do1.class);
+                        finish();
                         startActivity(intent);
                     } else if (details_class.getEx_type().equals(getString(R.string.pose))) {
                         Log.i(TAG, "pose type");
                         intent = new Intent(Task_list.this, pose_day.class);
+                        finish();
                         startActivity(intent);
                     }
                 }
@@ -281,14 +286,17 @@ public class Task_list extends AppCompatActivity {
                     if (details_class.getEx_type().equals(getString(R.string.learn))) {
                         Log.i(TAG, "learn type");
                         intent = new Intent(Task_list.this, exer_learn.class);
+                        finish();
                         startActivity(intent);
                     } else if (details_class.getEx_type().equals(getString(R.string.do_type))) {
                         Log.i(TAG, "do type");
                         intent = new Intent(Task_list.this, exer_do_basic.class);
+                        finish();
                         startActivity(intent);
                     } else if (details_class.getEx_type().equals(getString(R.string.pose))) {
                         Log.i(TAG, "pose type");
                         intent = new Intent(Task_list.this, pose_day.class);
+                        finish();
                         startActivity(intent);
                     }
                 }
@@ -299,7 +307,7 @@ public class Task_list extends AppCompatActivity {
     public void showDialog_TaskUnlock() {
 
         Dialog dialog = new Dialog(Task_list.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.task_unlock_layout);
         Window window = dialog.getWindow();
@@ -315,7 +323,7 @@ public class Task_list extends AppCompatActivity {
     public void showDialog_Downloading() {
 
         dialog = new Dialog(Task_list.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.uploading_dialog);
         Window window = dialog.getWindow();
@@ -334,7 +342,7 @@ public class Task_list extends AppCompatActivity {
     public void showDialog_InsufficientStorage(){
 
        Dialog dialog = new Dialog(Task_list.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.insufficeint_storage);
         Window window = dialog.getWindow();
@@ -404,7 +412,7 @@ public class Task_list extends AppCompatActivity {
     public void showDialog_No_InternetConnection(){
 
         dialogSports = new Dialog(Task_list.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.no_internet_connection);
         Window window = dialogSports.getWindow();

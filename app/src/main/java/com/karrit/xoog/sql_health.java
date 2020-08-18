@@ -37,7 +37,7 @@ public class sql_health {
     private String ex_type_id="ex_type";
     private String relax_id="relax";
     private String Key_ex_id="ex_id";
-    private String link_id="link";
+
     private String name_id="ex_name";
     private String time_id="time_id";
     private String task_number_id="task_number";
@@ -103,19 +103,21 @@ public class sql_health {
                     String empty="empty";
                     sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS '"+table_task+"' ( '"+level_id+"'INTEGER,'"+task_id+"' INTEGER,'"+ex_type_id+"' VARCHAR,'"+rest_id+"' INTEGER,'"+credits_id+"' INTEGER,'"+excercise_num_id+"' INTEGER,'"+task_number_id+"' INTEGER,'"+credits_earned_id+"' INTEGER,'"+date_id+"' VARCHAR)");
                     sqLiteDatabase.execSQL("INSERT INTO table_task VALUES('"+level+"','"+Task+"','"+ex_type+"','"+rest+"','"+credits+"','"+ex_num+"','"+task_number+"',0,'"+empty+"')");
+                    task_details.setCurrent_bonus_credits(document.getLong("bonus_credits").intValue());
+
                     task_details.setCurrent_task_number(document.getLong("task_number").intValue());
                     task_details.apply();
                 }else {
                     Log.i(TAG,document.getId());
                     int ex_id = document.getLong("ex_id").intValue();
-                    String link=document.getString("link");
+
                     String name=document.getString("name");
                     int relax = document.getLong("relax").intValue();
                     int time = document.getLong("time").intValue();
                     Log.i(TAG,time_id+time);
-                    sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS '"+table_excercise+"' ('"+level_id+"' INTEGER,'"+task_id+"' INTEGER,'"+Key_ex_id+"' INTEGER,'"+name_id+"' VARCHAR,'"+link_id+"' VARCHAR,'"+relax_id+"' INTEGER,'"+time_id+"' INTEGER,'"+ex_order_id+"' INTEGER)");
+                    sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS '"+table_excercise+"' ('"+level_id+"' INTEGER,'"+task_id+"' INTEGER,'"+Key_ex_id+"' INTEGER,'"+name_id+"' VARCHAR,'"+relax_id+"' INTEGER,'"+time_id+"' INTEGER,'"+ex_order_id+"' INTEGER)");
                     int ex_order=Integer.parseInt(document.getId());
-                    sqLiteDatabase.execSQL("INSERT INTO table_excercise VALUES('"+level+"','"+Task+"','"+ex_id+"','"+name+"','"+link+"','"+relax+"','"+time+"','"+ex_order+"')");
+                    sqLiteDatabase.execSQL("INSERT INTO table_excercise VALUES('"+level+"','"+Task+"','"+ex_id+"','"+name+"','"+relax+"','"+time+"','"+ex_order+"')");
 
                 }
             }
@@ -167,7 +169,7 @@ public class sql_health {
         }
         Cursor d = sqLiteDatabase.rawQuery("SELECT * FROM table_excercise", null);
         int ex_id=d.getColumnIndex(Key_ex_id);
-        int link=d.getColumnIndex(link_id);
+
         int name=d.getColumnIndex(name_id);
         int relax=d.getColumnIndex(relax_id);
         int time=d.getColumnIndex(time_id);
@@ -175,7 +177,7 @@ public class sql_health {
         do{
             Log.i(TAG,"position"+ d.getPosition());
             Log.i("ex_id","ex" + d.getInt(ex_id));
-            Log.i(TAG,"link"+d.getString(link));
+
             Log.i(TAG,"name"+d.getString(name));
             Log.i(TAG,"relax"+d.getInt(relax));
             Log.i(TAG,"time"+d.getInt(time));
@@ -262,7 +264,7 @@ public class sql_health {
             String q = "SELECT * FROM " + table_excercise + " WHERE level= " + level + " AND task= " + task + " ORDER BY "+ex_order_id+" ASC";
             Cursor d = sqLiteDatabase.rawQuery(q, null);
             int ex_id = d.getColumnIndex(Key_ex_id);
-            int link = d.getColumnIndex(link_id);
+
             int name = d.getColumnIndex(name_id);
             int relax = d.getColumnIndex(relax_id);
             int time = d.getColumnIndex(time_id);

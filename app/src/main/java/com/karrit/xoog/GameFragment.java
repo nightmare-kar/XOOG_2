@@ -1,6 +1,7 @@
 package com.karrit.xoog;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,18 +19,19 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LifecycleOwner;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -39,7 +41,7 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.w3c.dom.Text;
+
 
 import java.util.HashMap;
 
@@ -59,6 +61,7 @@ FirebaseFirestore db;
     TextView sports_text,rubik_text,health_text;
   shared share;
     String TAG="gameFragment";
+    Activity activity;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,6 +70,7 @@ FirebaseFirestore db;
         ImageView sport_image=view.findViewById(R.id.white_sqr1);
         ImageView health_image=view.findViewById(R.id.white_sqr3);
         db=FirebaseFirestore.getInstance();
+        activity=getActivity();
         share=new shared(getActivity());
       final shared share=new shared(getActivity());
       Log.i(TAG,share.getCurrent_kid());
@@ -102,7 +106,7 @@ FirebaseFirestore db;
              Log.i(TAG,"course id" + "health "+course_id);
                if(course_id.equals(getString(R.string.health_course_id))){
                    if(task_sports.checkEXP()){
-                       Intent i = new Intent(getActivity(),animation_activity.class);
+                       Intent i = new Intent(activity,animation_activity.class);
                        Log.i(course_id,"enter");
                        startActivity(i);
                    }else{
@@ -111,21 +115,21 @@ FirebaseFirestore db;
                        task_sports.createdb();
                        task_sports.setCourse_id_Cloud(getString(R.string.over));
                        Log.i(course_id,"over with exp");
-                       Intent intent=new Intent(getActivity(),School_program.class);
+                       Intent intent=new Intent(activity,School_program.class);
                        intent.putExtra("flag_start",1);
                        startActivity(intent);
                        //show subs over dialog box
                    }
                }else if(course_id.equals(getString(R.string.over))){
                    Log.i(course_id,"over");
-                   Intent intent=new Intent(getActivity(),School_program.class);
+                   Intent intent=new Intent(activity,School_program.class);
                    intent.putExtra("flag_start",1);
                    startActivity(intent);
                    //show subs over dialog box
                } else if(course_id.equals(getString(R.string.new_user))){
                    //show trial dialog
 
-                   Intent intent=new Intent(getActivity(),School_program.class);
+                   Intent intent=new Intent(activity,School_program.class);
                    intent.putExtra("flag_start",1);
                    startActivity(intent);
                    Log.i(course_id,"new user");
@@ -140,13 +144,13 @@ FirebaseFirestore db;
                 Log.i("fragment_sport","onclicked");
                 share.setCurrent_course_type(getString(R.string.sport_type));
                 share.apply();
-                task_details task_sports=new task_details(getActivity(),share.getCurrent_kid(),getString(R.string.sport_type));
+                task_details task_sports=new task_details(activity,share.getCurrent_kid(),getString(R.string.sport_type));
                 String course_id=task_sports.getCourse_id();
                 Log.i("sport_type",getString(R.string.sport_type));
                 Log.i(TAG,"exp date"+task_sports.getExp());
                 if(course_id.equals(getString(R.string.sport_course_id))){
                     if(task_sports.checkEXP()){
-                        Intent i = new Intent(getActivity(),animation_activity.class);
+                        Intent i = new Intent(activity,animation_activity.class);
                         Log.i(course_id,"enter");
                         startActivity(i);
                     }else{
@@ -164,7 +168,7 @@ FirebaseFirestore db;
                     //show subs over dialog box
                 } else if (course_id.equals(getString(R.string.trial))) {
 
-                        Intent i = new Intent(getActivity(),animation_activity.class);
+                        Intent i = new Intent(activity,animation_activity.class);
                         Log.i(course_id,"enter");
                         startActivity(i);
 
@@ -180,10 +184,10 @@ FirebaseFirestore db;
         rubik_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final task_details task_rubik=new task_details(getActivity(),share.getCurrent_kid(),getString(R.string.rubik_type));
+                final task_details task_rubik=new task_details(activity,share.getCurrent_kid(),getString(R.string.rubik_type));
                level=task_rubik.getCurrent_level();
                task=task_rubik.getCurrent_task();
-                sql=new sql_rubik(getActivity(),share.getCurrent_kid());
+                sql=new sql_rubik(activity,share.getCurrent_kid());
              String task_type=sql.getTasktype(level,task);
            Log.i(TAG,"task type"+task_type);
 
@@ -208,7 +212,7 @@ FirebaseFirestore db;
                       OneOneFN();
                     }else {
 
-                        Intent i = new Intent(getActivity(), animation_activity.class);
+                        Intent i = new Intent(activity, animation_activity.class);
                         Log.i(course_id, "enter");
                         startActivity(i);
                     }
@@ -222,7 +226,7 @@ FirebaseFirestore db;
                         if(task_type.equals(getString(R.string.one_one_type))){
                             OneOneFN();
                         }else {
-                            Intent i = new Intent(getActivity(), animation_activity.class);
+                            Intent i = new Intent(activity, animation_activity.class);
                             Log.i(course_id, "enter");
                             startActivity(i);
                         }
@@ -242,6 +246,7 @@ FirebaseFirestore db;
                     showTrial_Dialog_rubik();
                     Log.i(course_id,"new user");
                 }else if(course_id.equals(getString(R.string.rubik_done))){
+                    showRubikDoneDialog();
                     //show course completed dialog
                 }
             }
@@ -249,7 +254,7 @@ FirebaseFirestore db;
         return view;
     }
     public void OneOneFN(){
-        task_rubik=new task_details(getActivity(),share.getCurrent_kid(),getString(R.string.rubik_type));
+        task_rubik=new task_details(activity,share.getCurrent_kid(),getString(R.string.rubik_type));
 
         Log.i(TAG,"if entered");
         if(task_rubik.getOne_one_link(level,task).equals(getString(R.string.empty))){
@@ -261,7 +266,7 @@ FirebaseFirestore db;
                     if(Task.isSuccessful()){
                         Log.i(TAG,Task.getResult().toString());
                         if(Task.getResult().isEmpty()){
-                            Intent intent=new Intent(getActivity(),slot_book.class);
+                            Intent intent=new Intent(activity,slot_book.class);
                             one_one_class one=sql.get_one_one(level,task);
                             intent.putExtra("topic",one.getDesciption());
                             intent.putExtra("time",one.getTime());
@@ -283,7 +288,7 @@ FirebaseFirestore db;
                             Log.i(TAG,"one_one"+task_rubik.getOne_one_Date(level,task));
                             Log.i(TAG,"one_one"+task_rubik.getOne_one_Time(level,task));
 
-                                Intent intent = new Intent(getActivity(), animation_activity.class);
+                                Intent intent = new Intent(activity, animation_activity.class);
                                 startActivity(intent);
 
                         }
@@ -294,14 +299,14 @@ FirebaseFirestore db;
         }else {
 
 
-                Intent intent = new Intent(getActivity(), animation_activity.class);
+                Intent intent = new Intent(activity, animation_activity.class);
                 startActivity(intent);
         }
 
     }
     public void showTrial_Dialog_rubik(){
         final Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.trial_rubik);
         Window window = dialog.getWindow();
@@ -350,7 +355,7 @@ FirebaseFirestore db;
     }
 public void showTrial_Dialog_sports(){
     final Dialog dialogSports = new Dialog(getActivity());
-    dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
     dialogSports.setCancelable(false);
     dialogSports.setContentView(R.layout.trail_sports);
     Window window = dialogSports.getWindow();
@@ -403,7 +408,7 @@ public void createNewFnSports(){
 }
 public void showSubscribeDialog(){
     final Dialog dialogSubs = new Dialog(getActivity());
-    dialogSubs.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
     dialogSubs.setCancelable(false);
     dialogSubs.setContentView(R.layout.subs_over);
     Window window = dialogSubs.getWindow();
@@ -434,6 +439,28 @@ public void showSubscribeDialog(){
 
     dialogSubs.show();
 }
+    public void showRubikDoneDialog(){
+        final Dialog dialogSubs = new Dialog(getActivity());
+
+        dialogSubs.setCancelable(true);
+        dialogSubs.setContentView(R.layout.rubik_done_dialog);
+        Window window = dialogSubs.getWindow();
+        ImageView close=dialogSubs.findViewById(R.id.close);
+        Log.i("main","pop_up_subs");
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogSubs.dismiss();
+            }
+        });
+
+        window.setGravity(Gravity.CENTER);
+        window.setGravity(Gravity.CENTER_HORIZONTAL);
+        dialogSubs.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
+        dialogSubs.show();
+    }
 public void XcoreXcashSnapShotListener(){
         DocumentReference documentReference=FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("account_details");
     registration=documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -452,43 +479,67 @@ public void UpdateXcoreandXcash(DocumentSnapshot documentSnapshot){
         int xcash=0;
         account_details accountDetails=new account_details(getActivity(),share.getCurrent_kid());
         if(documentSnapshot!=null){
-            if(documentSnapshot.getBoolean("update")) {
-                Log.i(TAG, "document Refernce" + documentSnapshot.getData());
-                if (documentSnapshot.getLong("xcash").intValue() != accountDetails.getXcash()) {
-                    xcash = documentSnapshot.getLong("xcash").intValue() - accountDetails.getXcash();
-                    if (xcash > 0) {
-                        updateXcash = true;
+            Boolean update = documentSnapshot.getBoolean("update");
+            if(update!=null) {
+                if (update) {
+                    Log.i(TAG, "document Refernce" + documentSnapshot.getData());
+                    if (documentSnapshot.getLong("xcash").intValue() != accountDetails.getXcash()) {
+                        xcash = documentSnapshot.getLong("xcash").intValue() - accountDetails.getXcash();
+                        if (xcash > 0) {
+                            updateXcash = true;
+                        }
+                        accountDetails.setXcash(documentSnapshot.getLong("xcash").intValue());
+                        accountDetails.apply();
+                        FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("account_details").update("update", false);
+
+
+                        Log.i(TAG, "xcash updated" + accountDetails.getXcash());
+
                     }
-                    accountDetails.setXcash(documentSnapshot.getLong("xcash").intValue());
-                    accountDetails.apply();
-                    FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("account_details").update("update",false);
+                    if (documentSnapshot.getLong("xcore").intValue() != accountDetails.getXcore()) {
+                        xcore = documentSnapshot.getLong("xcore").intValue() - accountDetails.getXcore();
+                        if (xcore > 0) {
+                            updateXcore = true;
+                        }
+                        FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("account_details").update("update", false);
 
+                        accountDetails.setXcore(documentSnapshot.getLong("xcore").intValue());
+                        accountDetails.apply();
+                      FirebaseFirestore.getInstance().collection("leaderboard").document(share.getCurrent_kid()).update("xcore",documentSnapshot.getLong("xcore").intValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                          @Override
+                          public void onComplete(@NonNull Task<Void> task) {
+                              if(task.isSuccessful()){
+                                  Log.i(TAG,"leaderboard updated");
 
-                    Log.i(TAG, "xcash updated" + accountDetails.getXcash());
-
-                }
-                if (documentSnapshot.getLong("xcore").intValue() != accountDetails.getXcore()) {
-                    xcore = documentSnapshot.getLong("xcore").intValue() - accountDetails.getXcore();
-                    if (xcore > 0) {
-                        updateXcore = true;
+                              }else {
+                                  FirebaseCrashlytics.getInstance().log("update leaderboard game fragment not successful");
+                              }
+                          }
+                      });
+                        Log.i(TAG, "xcash updated" + accountDetails.getXcore());
                     }
-                    FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("account_details").update("update",false);
+                    if (updateXcash && updateXcore) {
+                        showPointUpdate(xcore, xcash);
+                        //show dialog
+                    } else if (updateXcash) {
+                        showPointUpdate(0, xcash);
 
-                    accountDetails.setXcore(documentSnapshot.getLong("xcore").intValue());
-                    accountDetails.apply();
+                    } else if (updateXcore) {
+                        showPointUpdate(xcore, 0);
 
-                    Log.i(TAG, "xcash updated" + accountDetails.getXcore());
+                    }
                 }
-                if (updateXcash && updateXcore) {
-                    showPointUpdate(xcore, xcash);
-                    //show dialog
-                } else if (updateXcash) {
-                    showPointUpdate(0, xcash);
-
-                } else if (updateXcore) {
-                    showPointUpdate(xcore, 0);
-
-                }
+            }else{
+                HashMap<String, Object> map=new HashMap<>();
+                map.put("error_type","update value is null");
+                map.put("kid_id",share.getCurrent_kid());
+                map.put("Time",Timestamp.now());
+                FirebaseFirestore.getInstance().collection("errors").add(map).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        Log.i(TAG,"error upload completed");
+                    }
+                });
             }
         }
 }
@@ -524,7 +575,7 @@ public void UpdateXcoreandXcash(DocumentSnapshot documentSnapshot){
     }
     public void showPointUpdate(int xcore,int xcash){
         final Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.dialog_credit_update);
         Window window = dialog.getWindow();

@@ -298,20 +298,10 @@
                 android:fontFamily="@font/mons_bold"
 
                 android:textColor="#3587f2"
+                android:paddingBottom="5dp"
                 android:text="Sports Fitness"
                 />
-            <TextView
-                android:id="@+id/sports_cost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="#327ff2"
-                android:fontFamily="@font/nexa_light"
-                android:layout_gravity="center_horizontal"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="-11.5sp"
-                android:text="2000 Per Month"
-                />
+
             <TextView
                 android:id="@+id/sport_content1"
                 android:layout_width="wrap_content"
@@ -343,7 +333,7 @@
                 android:textSize="15sp"
                 tools:layout_editor_absoluteX="78dp"
                 tools:layout_editor_absoluteY="231dp"
-                android:text="Customised Training for better results\n\n1 on 1 Review and assesments \n\nIncreases Sprinting,Strength &amp; Immunity  " />
+                android:text="Specialised Programs for better results\n\n1 on 1 Review and assesments \n\nIncreases Sprinting,Strength &amp; Immunity  " />
             <Button
                 android:id="@+id/sports_button2"
                 android:layout_width="100dp"
@@ -389,20 +379,10 @@
                 android:fontFamily="@font/mons_bold"
 
                 android:textColor="#3587f2"
-                android:text="Sports Fitness"
+                android:text="Rubik's Puzzles"
+                android:paddingBottom="5dp"
                 />
-            <TextView
-                android:id="@+id/rubik_cost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="#327ff2"
-                android:fontFamily="@font/nexa_light"
-                android:layout_gravity="center_horizontal"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="-11.5sp"
-                android:text="2000 Per Month"
-                />
+
             <TextView
                 android:id="@+id/rubik_content1"
                 android:layout_width="wrap_content"
@@ -416,7 +396,7 @@
 
                 android:layout_gravity="start"
                 android:lineSpacingExtra="0sp"
-                android:text="Strength Based Physical Training to improve the performance and endurance of the kids respective sport  "
+                android:text="Learn to solve the amazing Rubik's cube 3x3 and figure out the correct solution for the 42 Quintillion possibilities"
                 />
 
             <TextView
@@ -435,7 +415,7 @@
                 android:textSize="15sp"
                 tools:layout_editor_absoluteX="78dp"
                 tools:layout_editor_absoluteY="231dp"
-                android:text="Customised Training for better results\n\n1 on 1 Review and assesments \n\nIncreases Sprinting,Strength &amp; Immunity  " />
+                android:text="One on One Interactive Video Calls with Best Cubers\n\nAssignments and Certification on Completion\n\nImproves memory, Reflexes &amp; Analytical Skills" />
             <Button
                 android:id="@+id/rubik_button2"
                 android:layout_width="100dp"
@@ -480,22 +460,11 @@
                 android:textSize="17.3sp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/mons_bold"
-
+                android:paddingBottom="5dp"
                 android:textColor="#3587f2"
-                android:text="Sports Fitness"
+                android:text="XOOG Special"
                 />
-            <TextView
-                android:id="@+id/special_cost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="#327ff2"
-                android:fontFamily="@font/nexa_light"
-                android:layout_gravity="center_horizontal"
-                android:letterSpacing="-0.02"
-                android:lineSpacingExtra="-11.5sp"
-                android:text="2000 Per Month"
-                />
+
             <TextView
                 android:id="@+id/special_content1"
                 android:layout_width="wrap_content"
@@ -509,7 +478,7 @@
 
                 android:layout_gravity="start"
                 android:lineSpacingExtra="0sp"
-                android:text="Strength Based Physical Training to improve the performance and endurance of the kids respective sport  "
+                android:text="Learn to solve the amazing Rubik's cube 3x3 and access Strength Based Physical Training for the kids respective sport  "
                 />
 
             <TextView
@@ -527,7 +496,7 @@
                 android:textSize="15sp"
                 tools:layout_editor_absoluteX="78dp"
                 tools:layout_editor_absoluteY="231dp"
-                android:text="Customised Training for better results\n\n1 on 1 Review and assesments \n\nIncreases Sprinting,Strength &amp; Immunity  " />
+                android:text="One on One Interactive Video Calls with Best Cubers\n\nAssignments and Certification on Completion\n\nImproves memory, Reflexes &amp; Analytical Skills\n\nIncreases Sprinting,Strength &amp; Immunity\n\nSpecialised Programs for better results" />
             <Button
                 android:id="@+id/special_button2"
                 android:layout_width="100dp"

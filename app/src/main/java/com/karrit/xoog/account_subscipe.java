@@ -239,8 +239,8 @@ public class account_subscipe extends AppCompatActivity{
                     account_data.put("email", email_string);
                     account_data.put("gender", gender_string[selected_gender]);
                     account_data.put("DOB", selected_date);
-                    account_data.put("xcore", 0);
-                    account_data.put("xcash", 0);
+                    account_data.put("xcore", 500);
+                    account_data.put("xcash", 500);
                     account_data.put("grade", gradeString[selected_grade]);
                     account_data.put("referredBy", getString(R.string.empty));
                     account_data.put("schoolId", getString(R.string.empty));
@@ -302,8 +302,8 @@ public class account_subscipe extends AppCompatActivity{
                     account_data.put("grade", gradeString[selected_grade]);
                     account_data.put("schoolId", schoolId);
                     account_data.put("AcademyId", AcademyId);
-                    account_data.put("xcore", 0);
-                    account_data.put("xcash", 0);
+                    account_data.put("xcore", 500);
+                    account_data.put("xcash", 500);
                     account_data.put("update",false);
                     account_data.put("DOJ", Timestamp.now());
                     Log.i(TAG, "reffere id");
@@ -380,8 +380,8 @@ public class account_subscipe extends AppCompatActivity{
                account.setGrade(gradeString[selected_grade]);
                 account.setEmail(email_string);
                 account.setKid_name(name_string);
-                account.setXcash(0);
-                account.setXcore(0);
+                account.setXcash(500);
+                account.setXcore(500);
                 account.setGender(gender_string[selected_gender]);
                 account.apply();
                 Log.i(TAG,"acount name"+account.getKid_name());

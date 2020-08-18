@@ -235,7 +235,6 @@ public class School_program extends AppCompatActivity implements PaymentResultLi
             }
             taskSports.apply();
             sql_health sqlHealth=new sql_health(this,share.getCurrent_kid());
-            sqlHealth.download_next_task(1,1);
         }else{
             if(month==1) {
                 Log.i(TAG,"month is 1");
@@ -257,7 +256,7 @@ public class School_program extends AppCompatActivity implements PaymentResultLi
 
     public void showMonth(final String course_type){
         dialogSubs=new Dialog(School_program.this);
-        dialogSubs.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSubs.setCancelable(true);
         dialogSubs.setContentView(R.layout.dialog_choose_package);
         Window window = dialogSubs.getWindow();
@@ -479,7 +478,7 @@ public class School_program extends AppCompatActivity implements PaymentResultLi
     public void showDialog_start(){
 
         dialogSports=new Dialog(School_program.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.no_internet_connection);
         Window window = dialogSports.getWindow();
@@ -495,7 +494,7 @@ public class School_program extends AppCompatActivity implements PaymentResultLi
     public void showDialog_DontClose(){
 
         dialogUpload=new Dialog(School_program.this);
-        dialogUpload.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogUpload.setCancelable(false);
         dialogUpload.setContentView(R.layout.uploading_dialog);
         Window window = dialogUpload.getWindow();

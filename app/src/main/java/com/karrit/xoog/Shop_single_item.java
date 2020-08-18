@@ -38,6 +38,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TimeZone;
 
 public class Shop_single_item extends AppCompatActivity {
     ImageView imageView;
@@ -179,6 +180,7 @@ registered=false;
         HashMap<String,Object> map=new HashMap<>();
         map.put("address",address.getAddress_full());
         map.put("shop_id",id);
+        map.put("Timezone", TimeZone.getDefault());
         map.put("kid_id",share.getCurrent_kid());
         map.put("Date of Ordering", Timestamp.now());
         map.put("status","order just received");
@@ -195,7 +197,7 @@ registered=false;
     public void NoXcash(int xcash){
         Log.i(TAG,"remain "+xcash);
         final Dialog dialog = new Dialog(Shop_single_item.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.no_xcash);
         Window window = dialog.getWindow();
@@ -289,7 +291,7 @@ registered=false;
     public void NoInternetConnection(){
 
         dialogSports = new Dialog(Shop_single_item.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.no_internet_connection);
         Window window = dialogSports.getWindow();
@@ -302,7 +304,6 @@ registered=false;
     public void LoadingDialog(){
 
         Dialog dialogLoad = new Dialog(Shop_single_item.this);
-        dialogLoad.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogLoad.setCancelable(false);
         dialogLoad.setContentView(R.layout.uploading_dialog);
         Window window = dialogLoad.getWindow();

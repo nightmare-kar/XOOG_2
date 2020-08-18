@@ -39,6 +39,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -49,6 +50,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -75,6 +77,7 @@ public class exercise_do1 extends AppCompatActivity implements  SurfaceHolder.Ca
     CountDownTimer countDownTimer;
 
      Exer_remain exerRemain;
+
 
     boolean recording = false;
     boolean usecamera = true;
@@ -593,6 +596,7 @@ try {
             hashMap.put("task",task);
             hashMap.put("course_type",getString(R.string.sport_type));
             hashMap.put("status","new");
+            hashMap.put("Timestamp", Timestamp.now());
             db.add(hashMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentReference> task) {

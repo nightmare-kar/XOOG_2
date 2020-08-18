@@ -92,9 +92,7 @@ this.context=ctx;
              Log.i(TAG,"inside_firestore");
 
              if (document.getId().equals("details")) {
-                 task_details.setCurrent_task_number(document.getLong(task_number_id).intValue());
-                 task_details.setCurrent_bonus_credits(document.getLong(bonus_credits_id).intValue());
-                 task_details.apply();
+
              }else {
                  String course_type = document.getString("course_type");
                  int rest = document.getLong("rest").intValue();
@@ -102,9 +100,10 @@ this.context=ctx;
                  Log.i(TAG,"course type in"+course_type);
                  int task = Integer.parseInt(document.getId());
                  String empty="empty";
+                 int credits=document.getLong("credits").intValue();
 
                  sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS '"+table_task+"' ('"+level_id+"'INTEGER,'"+task_id+"'INTEGER,'"+task_type_id+"' VARCHAR,'"+rest_id+"' INTEGER,'"+credits_id+"' INTEGER,'"+credits_earned_id+"' INTEGER,'"+date_id+"' VARCHAR)");
-                 sqLiteDatabase.execSQL("INSERT INTO '"+table_task+"' VALUES('"+level+"','"+task+"','"+course_type+"','"+rest+"',0,0,'"+empty+"')");
+                 sqLiteDatabase.execSQL("INSERT INTO '"+table_task+"' VALUES('"+level+"','"+task+"','"+course_type+"','"+rest+"','"+credits+"',0,'"+empty+"')");
                  if (course_type.equals("upload_photo")) {
                      upload_photo(document, level, task);
                      Log.i(TAG, "upload_photo");

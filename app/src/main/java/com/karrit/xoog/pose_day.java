@@ -181,7 +181,7 @@ public class pose_day extends AppCompatActivity {
     public void NoInternetConnection(){
 
         dialogSports = new Dialog(pose_day.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.no_internet_connection);
         Window window = dialogSports.getWindow();

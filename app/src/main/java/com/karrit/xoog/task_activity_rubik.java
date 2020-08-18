@@ -86,7 +86,7 @@ String TAG="task activity";
     }
     public void showBack_Dialog(){
         final Dialog dialogSports = new Dialog(task_activity_rubik.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         dialogSports.setCancelable(true);
         dialogSports.setContentView(R.layout.dialog_back);
         Window window = dialogSports.getWindow();

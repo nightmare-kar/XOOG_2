@@ -23,9 +23,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
+import java.util.TimeZone;
 
 public class ShopFragment extends Fragment {
     private String TAG="shop Fragment";
@@ -64,7 +63,18 @@ storageReference= FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-7
     @Override
     public void onStart() {
         Log.i(commonTag,TAG+" on start");
-        collectionReference=FirebaseFirestore.getInstance().collection("shop");
+
+        Log.i(TAG,"time_zone"+TimeZone.getTimeZone("Asia/Dubai").getRawOffset());
+        Log.i(TAG,"time_zone"+TimeZone.getTimeZone("Asia/Calcutta").getRawOffset());
+        Log.i(TAG,"time_zone"+TimeZone.getDefault().getRawOffset());
+
+        if((TimeZone.getDefault().getRawOffset())==(TimeZone.getTimeZone("Asia/Dubai").getRawOffset())){
+            Log.i(TAG,"utc");
+            collectionReference=FirebaseFirestore.getInstance().collection("shop_UAE");
+        }else {
+            Log.i(TAG,"pther");
+            collectionReference = FirebaseFirestore.getInstance().collection("shop");
+        }
         registration=collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot querySnapshot, @Nullable FirebaseFirestoreException e) {

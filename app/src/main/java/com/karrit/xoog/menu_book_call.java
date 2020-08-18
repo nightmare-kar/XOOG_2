@@ -80,7 +80,6 @@ public class menu_book_call extends AppCompatActivity {
     }
     public void showDialogRequestPlaced(){
         dialogSports = new Dialog(menu_book_call.this);
-        dialogSports.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogSports.setCancelable(false);
         dialogSports.setContentView(R.layout.dialog_request_booked);
         Window window = dialogSports.getWindow();
