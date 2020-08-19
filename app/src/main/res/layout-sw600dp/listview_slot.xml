@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/list_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="#f2f2f2"
+        android:paddingTop="15dp"
+        android:background="@drawable/list_text_background"
+        android:fontFamily="@font/mons_black"
+        android:paddingBottom="15dp"
+        android:lineSpacingExtra="-10.3sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="10:00 AM"/>
+
+</LinearLayout>

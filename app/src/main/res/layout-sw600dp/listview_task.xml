@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/list_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="38.2sp"
+        android:textColor="#000000"
+        android:paddingTop="15dp"
+        android:background="@drawable/list_text_background"
+        android:fontFamily="@font/mons_semibold"
+        android:paddingBottom="15dp"
+        android:lineSpacingExtra="-10.3sp"
+        android:paddingRight="100dp"
+        android:gravity="start"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:text="- Task 1"/>
+    <ImageView
+        android:id="@+id/image"
+        android:layout_weight="6"
+        android:layout_gravity="center"
+        android:gravity="start"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/asst_done"/>
+
+</LinearLayout>

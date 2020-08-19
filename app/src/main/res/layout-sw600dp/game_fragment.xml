@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2f0459">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_sport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="white_sqr1,sports,yello_circle,lunge"
+       />
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_rubik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="white_sqr2,rubik_text,yello_circle2,cube"
+        />
+    <ImageView
+        android:id="@+id/white_sqr1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintWidth_percent="0.65"
+        app:srcCompat="@drawable/selector_white_24dp" />
+
+    <ImageView
+        android:id="@+id/white_sqr2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/white_sqr1"
+        app:layout_constraintWidth_percent="0.65"
+        app:srcCompat="@drawable/selector_white_24dp" />
+    <ImageView
+        android:id="@+id/white_sqr3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/white_sqr2"
+        app:layout_constraintWidth_percent="0.65"
+        app:srcCompat="@drawable/selector_white_24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20171" />
+
+    <ImageView
+        android:id="@+id/yello_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/white_sqr1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/circle_yellow" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.225"
+        android:id="@+id/guideline01"/>
+
+
+    <TextView
+        android:id="@+id/sports"
+        android:fontFamily="@font/mons_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginRight="20dp"
+        android:gravity="end"
+        android:letterSpacing="-0.04"
+        android:lineSpacingExtra="-6.5sp"
+        android:text="Sport’s\nFit"
+        android:textColor="#2f0459"
+        android:textSize="30sp"
+
+        app:layout_constraintBottom_toBottomOf="@id/white_sqr1"
+        app:layout_constraintEnd_toEndOf="@+id/white_sqr1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/yello_circle"
+        app:layout_constraintTop_toTopOf="@+id/white_sqr1" />
+
+
+
+    <ImageView
+        android:id="@+id/lunge"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/yello_circle"
+        app:layout_constraintEnd_toEndOf="@+id/yello_circle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/yello_circle"
+        app:layout_constraintTop_toTopOf="@+id/yello_circle"
+        app:srcCompat="@drawable/lunge_icon" />
+    <ImageView
+        android:id="@+id/yello_circle3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/white_sqr3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/white_sqr3"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/circle_yellow" />
+
+    <TextView
+        android:id="@+id/health"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginRight="20dp"
+        android:gravity="end"
+        android:letterSpacing="-0.04"
+        android:fontFamily="@font/mons_bold"
+        android:lineSpacingExtra="-6.5sp"
+        android:text="Health &amp;\nEnergy"
+        android:textColor="#2f0459"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/white_sqr3"
+        app:layout_constraintEnd_toEndOf="@+id/white_sqr3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/yello_circle3"
+        app:layout_constraintTop_toTopOf="@+id/white_sqr3" />
+
+    <ImageView
+        android:id="@+id/healt_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="11dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/yello_circle3"
+        app:layout_constraintEnd_toEndOf="@+id/yello_circle3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/yello_circle3"
+        app:layout_constraintTop_toTopOf="@+id/yello_circle3"
+        app:srcCompat="@drawable/ic_health_icon" />
+
+
+
+    <ImageView
+        android:id="@+id/yello_circle2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/white_sqr2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/white_sqr2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/circle_yellow" />
+
+    <TextView
+        android:id="@+id/rubik_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginRight="20dp"
+        android:gravity="end"
+        android:fontFamily="@font/mons_bold"
+        android:letterSpacing="-0.04"
+        android:lineSpacingExtra="-6.5sp"
+        android:text="Rubik's\nPuzzle"
+        android:textColor="#2f0459"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/white_sqr2"
+        app:layout_constraintEnd_toEndOf="@+id/white_sqr2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/yello_circle"
+        app:layout_constraintTop_toTopOf="@+id/white_sqr2" />
+
+    <ImageView
+        android:id="@+id/cube"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/yello_circle2"
+        app:layout_constraintEnd_toEndOf="@+id/yello_circle2"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="@+id/yello_circle2"
+        app:layout_constraintTop_toTopOf="@+id/yello_circle2"
+        app:srcCompat="@drawable/cube_game_icon" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.23" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

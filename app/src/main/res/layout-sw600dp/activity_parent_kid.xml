@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#7f25d9"
+    android:layout_height="match_parent"
+    tools:context=".Parent_kid">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.99"
+        app:layout_constraintDimensionRatio="1:1"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:srcCompat="@drawable/ic_yellow_circle" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.99"
+        app:layout_constraintDimensionRatio="1:1"
+        android:scaleType="fitXY"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toEndOf="@id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/guideline3"
+        app:srcCompat="@drawable/ic_white_circle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.74" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <ImageView
+
+        android:id="@+id/parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.17"
+        android:translationY="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.36"
+        app:srcCompat="@drawable/ic_parent_back" />
+    <TextView
+        android:id="@+id/parentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons_thin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/parent"
+        android:textSize="37.8sp"
+        android:textColor="#fcfff5"
+        android:lineSpacingExtra="-20.5sp"
+        android:gravity="center_horizontal"
+        android:text="Parent"
+        />
+    <TextView
+        android:id="@+id/kid1Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30.3sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/mons_thin"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/kid1"
+        android:lineSpacingExtra="-16.8sp"
+        android:gravity="center_horizontal"
+        android:text="Kid 1"
+        />
+    <TextView
+        android:id="@+id/kid2Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="30.3sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/mons_thin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/kid2"
+        android:lineSpacingExtra="-16.8sp"
+        android:gravity="center_horizontal"
+        android:text="Kid 2"
+        />
+
+    <ImageView
+        android:onClick="sendToGamePage"
+        android:id="@+id/kid1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@+id/parentText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.113"
+        android:translationY="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.302"
+        app:srcCompat="@drawable/ic_kid_back"
+        />
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/group_kid_1"
+        app:constraint_referenced_ids="kid1,kid1Text"/>
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/group_kid_2"
+        app:constraint_referenced_ids="kid2,kid2Text"/>
+    <ImageView
+        android:onClick="sendToGamePage"
+        android:id="@+id/kid2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toBottomOf="@+id/kid1Text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.113"
+        android:translationY="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.302"
+        app:srcCompat="@drawable/ic_kid_back"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="39.7sp"
+        android:fontFamily="@font/mons_semibold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#fcfff5"
+        android:lineSpacingExtra="-20.8sp"
+        android:gravity="center_horizontal"
+        android:text="Who’s there?"
+        />
+    <Button
+        android:id="@+id/add_button"
+        android:textColor="#ffffffff"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dark_purple_round_rect"
+        android:text="Add new Profile"
+        android:fontFamily="@font/mons_bold"
+        android:textSize="35dp"
+        android:paddingHorizontal="30dp"
+        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:paddingVertical="5dp"
+        app:layout_constraintTop_toBottomOf="@id/kid2Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

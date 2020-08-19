@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+
+        app:cardCornerRadius="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:background="#ff887c"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/close"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/ic_close_white"
+                android:layout_gravity="end"/>
+<ImageView
+    android:layout_width="230dp"
+    android:layout_gravity="center"
+    android:layout_height="230dp"
+    android:src="@drawable/asst_booked"/>
+            <TextView
+                android:paddingBottom="10dp"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Request Placed!"
+                android:textSize="49.5sp"
+                android:fontFamily="@font/nexabold"
+                android:textColor="#ffffff"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

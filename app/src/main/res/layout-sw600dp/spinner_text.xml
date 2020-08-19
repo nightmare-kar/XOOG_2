@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <TextView
+        android:id="@+id/Name"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="5dp"
+    android:paddingLeft="5dp"
+        android:layout_weight="1.3"
+        style="@style/spinnerItemStyle"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/nexa_light"
+        android:textColor="#141f26"
+        android:lineSpacingExtra="1sp"
+        android:textSize="25sp"
+
+        />
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@color/blue"
+            android:orientation="vertical"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="193dp"
+                android:layout_height="193dp"
+                android:layout_gravity="center"
+                android:src="@drawable/asst_booked__green"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="49.5sp"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:text="Slot Booked!"
+                />
+            <TextView
+                android:id="@+id/cont"
+                android:layout_width="200dp"
+                android:layout_height="55dp"
+                android:textSize="33.7sp"
+                android:textColor="#317ff2"
+                android:clickable="true"
+                 android:gravity="center_horizontal"
+                android:background="@drawable/selector_white_7dp"
+                android:layout_gravity="center"
+                android:text="Continue"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

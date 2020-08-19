@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_green_gradient"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/shape"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_shape_we_are_done" />
+
+    <TextView
+        android:id="@+id/text_credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons_bold"
+        android:text="Xcore Earned"
+        android:textColor=" #ffffff"
+        android:textSize="30sp"
+        android:translationY="20dp"
+        app:layout_constraintBottom_toTopOf="@id/credit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <TextView
+        android:id="@+id/credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons_bold"
+        android:translationY="5dp"
+        android:text="20"
+        android:textColor=" #ffffff"
+        android:textSize="60sp"
+
+
+        app:layout_constraintBottom_toTopOf="@id/guideline13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+    <ImageView
+        android:id="@+id/character"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:translationY="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline54"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline13"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintWidth_percent="0.83"
+        app:srcCompat="@drawable/character_we_are_done" />
+
+    <TextView
+        android:id="@+id/we"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons_bold"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="-20.2sp"
+
+        android:textColor="#f28705"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline45"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="We are\nDone!" />
+
+    <TextView
+        android:id="@+id/text_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/mons_bold"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.06"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:lineSpacingExtra="-3sp"
+        android:text="Let’s jump to the next rock together!   I will see you in the next task"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:translationY="-30dp"
+        app:layout_constraintBottom_toTopOf="@id/bye"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toBottomOf="@id/we"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <Button
+        android:id="@+id/bye"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+
+        android:fontFamily="@font/mons_bold"
+        android:gravity="center"
+        android:lineSpacingExtra="-11.2sp"
+        android:text="Bye!"
+        android:background="@drawable/selector_orange_button"
+        android:clickable="true"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/guideline83"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintWidth_percent="0.27" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.135" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.54" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline83"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.78" />
+
+ <!--   <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/character_we_are_done"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"/>
+
+-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/cons"
+    android:layout_height="match_parent"
+    tools:context=".Home_page">
+
+
+    <com.karrit.xoog.myDrawerLayout
+
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/frameContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#673AB7"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+           />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:paddingLeft="15dp"
+            android:paddingTop="20dp"
+            app:itemIconPadding="25dp"
+            app:itemIconTint="#141f26"
+            app:itemTextAppearance="@style/Style_TextView"
+            app:itemTextColor="#141f26"
+            app:menu="@menu/account_menu" />
+    </com.karrit.xoog.myDrawerLayout>
+
+
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:background="#141f26"
+        app:itemIconTint="#FFFFFFFF"
+        app:itemTextColor="#26eba3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_bar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

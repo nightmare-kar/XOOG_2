@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/address_list_background"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="27.5sp"
+        android:textColor="#fbfbfb"
+        android:lineSpacingExtra="20.3sp"
+        android:gravity="end"
+        android:text="_ Address"
+        android:fontFamily="@font/mons_bold"
+        />
+    <TextView
+        android:id="@+id/full"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="21.7sp"
+        android:textColor="#fbfbfb"
+        android:lineSpacingExtra="1sp"
+        android:fontFamily="@font/mons_thin"
+
+        />
+</LinearLayout>
