@@ -255,6 +255,8 @@ boolean Mrec,Mrec_Payment;
             int pixelForDp = (int)(dpValue * dpRatio);
             set.setMargin(R.id.linear_rubik,ConstraintSet.TOP,pixelForDp);
             set.setMargin(R.id.special,ConstraintSet.TOP,pixelForDp);
+
+
             set.applyTo(layout);
 
         }
