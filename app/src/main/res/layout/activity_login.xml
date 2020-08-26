@@ -21,7 +21,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textAlignment="center"
-
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
@@ -305,7 +304,7 @@
         android:gravity="center"
 
         android:textColorHint="@color/common_google_signin_btn_text_light"
-        android:hint="Referral code(Optional)"
+        android:hint="School code(Optional)"
         app:layout_constraintEnd_toEndOf="@id/guideline85"
         app:layout_constraintHeight_percent="0.04"
 

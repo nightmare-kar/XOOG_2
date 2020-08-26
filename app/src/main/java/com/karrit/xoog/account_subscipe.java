@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.TimeZone;
 
 public class account_subscipe extends AppCompatActivity{
     String user_id;
@@ -303,6 +304,7 @@ public class account_subscipe extends AppCompatActivity{
                     account_data.put("schoolId", schoolId);
                     account_data.put("AcademyId", AcademyId);
                     account_data.put("xcore", 500);
+                    account_data.put("TIMEZONE", TimeZone.getDefault());
                     account_data.put("xcash", 500);
                     account_data.put("update",false);
                     account_data.put("DOJ", Timestamp.now());
@@ -322,7 +324,7 @@ public class account_subscipe extends AppCompatActivity{
                         HashMap<String,Object> map_school=new HashMap<>();
                         map_school.put("kid_id",share.getKid1_id());
                         map_school.put("DOT",Timestamp.now());
-                        db.collection("institutes").document("academy").collection(schoolId).add(map_school).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        db.collection("institutes").document("academy").collection(AcademyId).add(map_school).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                             @Override
                             public void onComplete(@NonNull Task<DocumentReference> task) {
                                 Log.i(TAG,"on complete");

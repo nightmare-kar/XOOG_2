@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -46,6 +47,7 @@ import java.security.acl.LastOwnerException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -140,19 +142,24 @@ public class login extends AppCompatActivity implements TextWatcher {
         ConstraintLayout constraintLayout = findViewById(R.id.cons);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //Use RelativeLayout.LayoutParams if your parent is a RelativeLayout
-        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
+        imageView.getLayoutParams().width=newWidth;
+        imageView.getLayoutParams().height=newHeight;
+      /*  ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
                 newWidth, newHeight);
         imageView.setLayoutParams(params);
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone(constraintLayout);
+
         constraintSet.setHorizontalBias(R.id.imageView2, 0.45f);
-        constraintSet.connect(R.id.imageView2, ConstraintSet.BOTTOM, R.id.guideline8, ConstraintSet.TOP, 0);
-        constraintSet.setVerticalBias(R.id.imageView2, 1f);
+     /*   constraintSet.connect(R.id.imageView2, ConstraintSet.BOTTOM, R.id.guideline8, ConstraintSet.TOP, 50);
+
         constraintSet.connect(R.id.imageView2, ConstraintSet.START, R.id.cons, ConstraintSet.START, 0);
         constraintSet.connect(R.id.imageView2, ConstraintSet.END, R.id.cons, ConstraintSet.END, 0);
 
 
         constraintSet.applyTo(constraintLayout);
+
+      */
 
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
@@ -696,6 +703,17 @@ public void startTimer(){
                     }
                 }
             });
+
+            HashMap<String,Object> map_school=new HashMap<>();
+                map_school.put("kid_id",share.getKid1_id());
+                map_school.put("DOT", Timestamp.now());
+                db.collection("institutes").document("school").collection(Schoolid).add(map_school).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        Log.i(TAG,"on complete");
+                    }
+                });
+
             db.collection("leaderboard").document(share.getKids_id(i)).update("school_code",Schoolid).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {

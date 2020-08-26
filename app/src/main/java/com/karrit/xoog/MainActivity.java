@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     String referrerUid = deeplink.getQueryParameter("invitedby");
                     String SchoolUid = deeplink.getQueryParameter("schoolid");
                     String AcademyUid = deeplink.getQueryParameter("academyId");
-                    Log.i(TAG, referrerUid);
+
                     Log.i(TAG, "referred" + referrerUid);
                     Log.i(TAG, "school " + SchoolUid);
                     Log.i(TAG, "academy " + AcademyUid);

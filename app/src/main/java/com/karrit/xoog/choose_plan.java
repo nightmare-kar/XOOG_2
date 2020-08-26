@@ -363,13 +363,10 @@ boolean Mrec,Mrec_Payment;
             Log.i(TAG, "course type" + course_type);
 
             Log.i(TAG, "payment sucess");
-            //if (!accountDetails.getRefferedBy().equals(getString(R.string.empty))) {
-              //  checkReferral(s);
-      //          Log.i(TAG, "referral");
-        //    }else {
+
                 updatePayment(s);
                 TransactFn();
-           // }
+
 
 
         }else {
@@ -401,6 +398,8 @@ boolean Mrec,Mrec_Payment;
                 transaction.update(documentReference, "xcore", newXcore);
                 transaction.update(leaderBoard,"xcore",newXcore);
                 accountDetails.setXcore(newXcore.intValue());
+                Log.i(TAG,"new xcore"+newXcore.intValue());
+                Log.i(TAG,"rate buy "+rate_buy_package);
                 accountDetails.apply();
                 // Success
                 return null;
@@ -675,64 +674,7 @@ boolean Mrec,Mrec_Payment;
             }
         });
     }
-    public void grantRewards(){
 
-        final String referId=accountDetails.getRefferedBy();
-        if(referId.equals(getString(R.string.empty))){
-            Log.i(TAG,"no String");
-        }else{
-            String ReferUserId = referId.substring(0,referId.length() - 1);
-            final DocumentReference documentReference=FirebaseFirestore.getInstance().collection("users").document(ReferUserId).collection(referId).document("account_details");
-            final FirebaseFirestore db=FirebaseFirestore.getInstance();
-            final DocumentReference documentReferenceCurrent=FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("account_details");
-            db.runTransaction(new Transaction.Function<Void>() {
-                @Override
-                public Void apply(Transaction transaction) throws FirebaseFirestoreException {
-                    DocumentSnapshot snapshot = transaction.get(documentReference);
-
-                    // Note: this could be done without a transaction
-                    //       by updating the population using FieldValue.increment()
-                    Long newXcash = snapshot.getLong("xcash") + 2000;
-                    transaction.update(documentReference, "xcash", newXcash);
-                    Long newXcore = snapshot.getLong("xcore") + 2000;
-                    transaction.update(documentReference, "xcore", newXcore);
-                    transaction.update(documentReferenceCurrent,"referredBy",getString(R.string.empty));
-
-                    // Success
-                    return null;
-                }
-            }).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Log.d(TAG, "Transaction success!");
-                    accountDetails.setRefferedBy(getString(R.string.empty));
-                    accountDetails.apply();
-
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.w(TAG, "Transaction failure.", e);
-                    HashMap<String,Object> user_refer=new HashMap<>();
-                    user_refer.put("referedFrom",share.getCurrent_kid());
-                    user_refer.put("referd_by",referId);
-                    user_refer.put("error_type","transaction failure of referral reward");
-                    db.collection("errors").add(user_refer).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentReference> task) {
-                            Log.i(TAG,"on Complete of error upload");
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.i(TAG,"on failure error upload");
-                        }
-                    });
-                }
-            });
-        }
-    }
     public void updatePayment(String s){
         HashMap<String, Object> payMap=new HashMap<>();
         payMap.put("RazorString",s);
@@ -762,31 +704,7 @@ boolean Mrec,Mrec_Payment;
     public void ScoreUpdate(){
 
     }
-    public void checkReferral(final String s){
-        FirebaseFirestore db=FirebaseFirestore.getInstance();
-        DocumentReference doc= db.collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("payments");
-        doc.collection("premium").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    if(task.getResult().size() > 0) {
-                        for (DocumentSnapshot document : task.getResult()) {
-                            Log.i(TAG, "Room already exists, start the chat");
 
-                        }
-                    } else {
-                        grantRewards();
-                        Log.i(TAG, "room doesn't exist create a new room");
-
-                    }
-                    updatePayment(s);
-                } else {
-                    Log.i(TAG, "Error getting documents: ", task.getException());
-                    updatePayment(s);
-                }
-            }
-        });
-    }
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -824,14 +742,9 @@ boolean Mrec,Mrec_Payment;
                     showDialog_DontClose();
                     showDialog_DontClose();
                     Log.i(TAG, "course type" + course_type);
-                    if(refId!=null) {
-                        if (!accountDetails.getRefferedBy().equals(getString(R.string.empty))) {
-                            checkReferral(refId);
-                            Log.i(TAG, "referral");
-                        }else {
-                            updatePayment(refId);
-                        }
-                    }
+                    updatePayment(refId);
+                    TransactFn();
+
 
 
                     Log.i(TAG, "payment sucess");

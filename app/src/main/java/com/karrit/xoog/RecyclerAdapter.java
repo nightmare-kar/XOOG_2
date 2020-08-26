@@ -73,7 +73,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
          holder.img_book_thumbnail.setAlpha(0.2f);
         }
         //  holder.img_book_thumbnail.setImageResource(mData.get(position).getThumbnail());
-        holder.credits.setText("CREDITS:" + Integer.toString(mData.get(position).getCredits()));
+        holder.credits.setText("XCASH: " + Integer.toString(mData.get(position).getCredits()));
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -9,6 +9,7 @@
 <com.google.android.material.appbar.AppBarLayout
     android:layout_width="match_parent"
     android:layout_height="180dp"
+    android:id="@+id/appBar"
     android:background="@android:color/transparent"
     android:fitsSystemWindows="true">
 
@@ -95,12 +96,21 @@
 </com.google.android.material.appbar.AppBarLayout>
 
 
+
 <androidx.recyclerview.widget.RecyclerView
 android:id="@+id/recyclerView"
+    android:translationY="-20dp"
 android:layout_width="match_parent"
+
+    android:gravity="bottom"
 android:layout_height="wrap_content"
+    android:layout_centerVertical="false"
+
+
+
 
 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -333,7 +333,7 @@ FirebaseFirestore db;
             public void onClick(View view) {
 
                 Intent intent=new Intent(getActivity(),slot_book.class);
-                if(oneOneClass!=null){
+                if(oneOneClass!=null&&oneOneClass.getTime()!=0){
                     intent.putExtra("time", oneOneClass.getTime());
                     intent.putExtra("topic",oneOneClass.getDesciption());
                     Log.i(TAG,"one one is not null");

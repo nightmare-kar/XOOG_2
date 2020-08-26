@@ -42,7 +42,7 @@ public class ShopFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.shop_fragment,container,false);
 
-storageReference= FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("shop");
+        storageReference= FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("shop");
         lstBook = new ArrayList<>();
         shared share=new shared(getActivity());
         account_details accountDetails=new account_details(getActivity(),share.getCurrent_kid());
@@ -90,7 +90,7 @@ storageReference= FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-7
         if(lstBook.size()!=0){
             lstBook.clear();
         }
-        for (QueryDocumentSnapshot doc : querySnapshot) {
+   for (QueryDocumentSnapshot doc : querySnapshot) {
             if (doc.get("name") != null) {
                 shopItems shopItems=new shopItems();
                 shopItems.setCredits(doc.getLong("credits").intValue());

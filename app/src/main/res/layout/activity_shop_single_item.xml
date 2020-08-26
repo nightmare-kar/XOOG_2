@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:lineSpacingExtra="-0.8sp"
-        android:text="CREDITS :  60"
+        android:text="XCASH :  60"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         android:textColor="#ecf7fa"

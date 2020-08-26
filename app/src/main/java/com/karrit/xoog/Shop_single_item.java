@@ -86,8 +86,16 @@ account_details accountDetails;
                 finish();
             }
         });
-        storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("shop");
-        imageView=findViewById(R.id.item);
+        if((TimeZone.getDefault().getRawOffset())==(TimeZone.getTimeZone("Asia/Dubai").getRawOffset())){
+            Log.i(TAG,"utc");
+            storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("shop_UAE");
+
+        }else {
+            Log.i(TAG,"pther");
+            storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://xoog-75949.appspot.com").child("shop");
+
+        }
+         imageView=findViewById(R.id.item);
         title=findViewById(R.id.textView);
         share=new shared(this);
         description=findViewById(R.id.description);
@@ -98,7 +106,7 @@ account_details accountDetails;
         Glide.with(this).load(storageReference.child(id + ".jpg")).into(imageView);
         description.setText(intent.getStringExtra("description"));
         title.setText(intent.getStringExtra("name"));
-        credits.setText("CREDITS: "+intent.getIntExtra("credits",0));
+        credits.setText("XCASH: "+intent.getIntExtra("credits",0));
         button=findViewById(R.id.button);
         xcashItem=intent.getIntExtra("credits",0);
         accountDetails=new account_details(this,share.getCurrent_kid());
@@ -180,6 +188,7 @@ registered=false;
         HashMap<String,Object> map=new HashMap<>();
         map.put("address",address.getAddress_full());
         map.put("shop_id",id);
+        map.put("item_name",title.getText().toString());
         map.put("Timezone", TimeZone.getDefault());
         map.put("kid_id",share.getCurrent_kid());
         map.put("Date of Ordering", Timestamp.now());
