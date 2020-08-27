@@ -7,9 +7,11 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.Group;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.ColorDrawable;
@@ -22,6 +24,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,11 +41,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.Transaction;
-import com.razorpay.Checkout;
-import com.razorpay.PaymentResultListener;
+import com.payumoney.core.PayUmoneyConfig;
+import com.payumoney.core.PayUmoneyConstants;
+import com.payumoney.core.PayUmoneySdkInitializer;
+import com.payumoney.core.entity.TransactionResponse;
+import com.payumoney.sdkui.ui.utils.PayUmoneyFlowManager;
+import com.payumoney.sdkui.ui.utils.ResultModel;
 
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -51,7 +60,7 @@ import java.util.HashMap;
 
 import static android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE;
 
-public class choose_plan extends AppCompatActivity implements PaymentResultListener {
+public class choose_plan extends AppCompatActivity {
 
    private String TAG="choose_plan";
    Dialog dialogUpload;
@@ -77,11 +86,14 @@ boolean Mrec,Mrec_Payment;
     String api_key;
     boolean updated;
     boolean showRubik;
+    private PayUmoneySdkInitializer.PaymentParam mPaymentParams;
+    private AppPreference mAppPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_plan);
+        mAppPreference = new AppPreference();
         rate_rubik=0;
         rate_1_special=0;
         rate_buy_package=0;
@@ -317,68 +329,180 @@ boolean Mrec,Mrec_Payment;
     }
 
     public void startPayment(String payment) {
-        /*
-          You need to pass current activity in order to let Razorpay create CheckoutActivity
-         */
 
-        /**
-         * Instantiate Checkout
-         */
-        Payment=Integer.parseInt(payment);
-        final Activity activity = this;
+        PayUmoneyConfig payUmoneyConfig = PayUmoneyConfig.getInstance();
 
-        final Checkout co = new Checkout();
-        co.setKeyID(getString(R.string.apiKey));
+        //Use this to set your custom text on result screen button
+        payUmoneyConfig.setDoneButtonText("Result");
 
+        //Use this to set your custom title for the activity
+        payUmoneyConfig.setPayUmoneyActivityTitle("Payment");
+
+        payUmoneyConfig.disableExitConfirmation(false);
+
+        PayUmoneySdkInitializer.PaymentParam.Builder builder = new PayUmoneySdkInitializer.PaymentParam.Builder();
+
+        double amount = 0;
         try {
-            JSONObject options = new JSONObject();
-            options.put("name", "XOOG");
-            options.put("description", "Subscription Charges");
-            //You can omit the image option to fetch the image from dashboard
+            amount = Double.parseDouble(payment)/100;
 
-            options.put("currency", "INR");
-            options.put("amount", payment);
-
-            JSONObject preFill = new JSONObject();
-            preFill.put("email", accountDetails.getEmail());
-            preFill.put("contact", accountDetails.getPhone_number());
-
-            options.put("prefill", preFill);
-
-            co.open(activity, options);
         } catch (Exception e) {
-            Toast.makeText(activity, "Error in payment: " + e.getMessage(), Toast.LENGTH_SHORT)
-                    .show();
             e.printStackTrace();
         }
+        String txnId = System.currentTimeMillis() + "";
+        String phone = accountDetails.getPhone_number ();
+        String productName = course_type;
+        String firstName = accountDetails.getKid_name ();
+        String email = accountDetails.getEmail ();
+        String udf1 = accountDetails.getDOB ();
+        String udf2 = accountDetails.getGender ();
+        String udf3 = accountDetails.getGrade ();
+        String udf4 = accountDetails.getUserId ();
+        String udf5 = "";
+        String udf6 = "";
+        String udf7 = "";
+        String udf8 = "";
+        String udf9 = "";
+        String udf10 = "";
+
+        AppEnvironment appEnvironment = ((BaseApplication) getApplication()).getAppEnvironment();
+        builder.setAmount(String.valueOf(amount))
+                .setTxnId(txnId)
+                .setPhone(phone)
+                .setProductName(productName)
+                .setFirstName(firstName)
+                .setEmail(email)
+                .setsUrl(appEnvironment.surl())
+                .setfUrl(appEnvironment.furl())
+                .setUdf1(udf1)
+                .setUdf2(udf2)
+                .setUdf3(udf3)
+                .setUdf4(udf4)
+                .setUdf5(udf5)
+                .setUdf6(udf6)
+                .setUdf7(udf7)
+                .setUdf8(udf8)
+                .setUdf9(udf9)
+                .setUdf10(udf10)
+                .setIsDebug(appEnvironment.debug())
+                .setKey(appEnvironment.merchant_Key())
+                .setMerchantId(appEnvironment.merchant_ID());
+
+        try {
+            mPaymentParams = builder.build();
+
+            mPaymentParams = calculateServerSideHashAndInitiatePayment1(mPaymentParams);
+
+            if (AppPreference.selectedTheme != -1) {
+                PayUmoneyFlowManager.startPayUMoneyFlow(mPaymentParams,choose_plan.this, AppPreference.selectedTheme,false);
+            } else {
+                PayUmoneyFlowManager.startPayUMoneyFlow(mPaymentParams,choose_plan.this, R.style.AppTheme_default, false);
+            }
+
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
+    private PayUmoneySdkInitializer.PaymentParam calculateServerSideHashAndInitiatePayment1(final PayUmoneySdkInitializer.PaymentParam paymentParam) {
 
+        StringBuilder stringBuilder = new StringBuilder();
+        HashMap<String, String> params = paymentParam.getParams();
+        stringBuilder.append(params.get( PayUmoneyConstants.KEY) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.TXNID) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.AMOUNT) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.PRODUCT_INFO) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.FIRSTNAME) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.EMAIL) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.UDF1) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.UDF2) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.UDF3) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.UDF4) + "|");
+        stringBuilder.append(params.get(PayUmoneyConstants.UDF5) + "||||||");
+
+        AppEnvironment appEnvironment = ((BaseApplication) getApplication()).getAppEnvironment();
+        stringBuilder.append(appEnvironment.salt());
+
+        String hash = hashCal(stringBuilder.toString());
+        paymentParam.setMerchantHash(hash);
+
+        return paymentParam;
+    }
 
     @Override
-    public void onPaymentSuccess(String s) {
-        refId=s;
-        if(networkCheck.internetConnectionAvailable(5000)) {
-            dialogSubs.dismiss();
-            showDialog_DontClose();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-            Log.i(TAG, "course type" + course_type);
+        Log.d(TAG, "request code " + requestCode + " resultcode " + resultCode);
+        if (requestCode == PayUmoneyFlowManager.REQUEST_CODE_PAYMENT && resultCode == RESULT_OK && data !=
+                null) {
+            TransactionResponse transactionResponse = data.getParcelableExtra(PayUmoneyFlowManager
+                    .INTENT_EXTRA_TRANSACTION_RESPONSE);
 
-            Log.i(TAG, "payment sucess");
+            ResultModel resultModel = data.getParcelableExtra(PayUmoneyFlowManager.ARG_RESULT);
 
-                updatePayment(s);
-                TransactFn();
+            // Check which object is non-null
+            if (transactionResponse != null && transactionResponse.getPayuResponse() != null) {
+                if (transactionResponse.getTransactionStatus().equals(TransactionResponse.TransactionStatus.SUCCESSFUL)) {
+                    if(networkCheck.internetConnectionAvailable(5000)) {
+                        dialogSubs.dismiss();
+                        showDialog_DontClose();
+
+                        Log.i(TAG, "course type" + course_type);
+
+                        Log.i(TAG, "payment sucess");
+
+                        updatePayment();
+                        TransactFn();
 
 
 
-        }else {
-            showDialog_start();
-            IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-            choose_plan.this.registerReceiver(choose_plan.this.mReceiver_Payment, filter);
-            Mrec_Payment=true;
+                    }else {
+                        showDialog_start();
+                        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+                        choose_plan.this.registerReceiver(choose_plan.this.mReceiver_Payment, filter);
+                        Mrec_Payment=true;
+                    }
+                } else {
+                    dialogSubs.dismiss();
+                    Log.i(TAG,"payment error");
+                }
+
+                // Response from Payumoney
+                String payuResponse = transactionResponse.getPayuResponse();
+
+                // Response from SURl and FURL
+                String merchantResponse = transactionResponse.getTransactionDetails();
+
+
+            } else if (resultModel != null && resultModel.getError() != null) {
+                Log.d(TAG, "Error response : " + resultModel.getError().getTransactionResponse());
+            } else {
+                Log.d(TAG, "Both objects are null!");
+            }
         }
-
     }
+
+    public static String hashCal(String str) {
+        byte[] hashseq = str.getBytes();
+        StringBuilder hexString = new StringBuilder();
+        try {
+            MessageDigest algorithm = MessageDigest.getInstance("SHA-512");
+            algorithm.reset();
+            algorithm.update(hashseq);
+            byte messageDigest[] = algorithm.digest();
+            for (byte aMessageDigest : messageDigest) {
+                String hex = Integer.toHexString(0xFF & aMessageDigest);
+                if (hex.length() == 1) {
+                    hexString.append("0");
+                }
+                hexString.append(hex);
+            }
+        } catch (NoSuchAlgorithmException ignored) {
+        }
+        return hexString.toString();
+    }
+
     public void TransactFn(){
         Log.i(TAG,"inside transaction");
         final DocumentReference documentReference= FirebaseFirestore.getInstance().collection("users").document(share.getUser_id()).collection(share.getCurrent_kid()).document("account_details");
@@ -589,12 +713,6 @@ boolean Mrec,Mrec_Payment;
 
     }
 
-    @Override
-    public void onPaymentError(int i, String s){
-        dialogSubs.dismiss();
-        Log.i(TAG,"payment error");
-    }
-
     public void showMonth(final String course_type){
 
         dialogSubs.setCancelable(true);
@@ -677,9 +795,8 @@ boolean Mrec,Mrec_Payment;
         });
     }
 
-    public void updatePayment(String s){
+    public void updatePayment(){
         HashMap<String, Object> payMap=new HashMap<>();
-        payMap.put("RazorString",s);
         payMap.put("course_type",course_type);
         payMap.put("date", Timestamp.now());
         payMap.put("pay",Payment);
@@ -744,7 +861,7 @@ boolean Mrec,Mrec_Payment;
                     showDialog_DontClose();
                     showDialog_DontClose();
                     Log.i(TAG, "course type" + course_type);
-                    updatePayment(refId);
+                    updatePayment();
                     TransactFn();
 
 

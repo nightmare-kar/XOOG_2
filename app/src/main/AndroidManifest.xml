@@ -19,7 +19,9 @@
         android:roundIcon="@mipmap/xoog_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup"
+        android:name=".BaseApplication">
         <activity android:name=".pose_day"
             android:screenOrientation="portrait"/>
         <activity android:name=".Task_finish"   android:screenOrientation="portrait"/>
